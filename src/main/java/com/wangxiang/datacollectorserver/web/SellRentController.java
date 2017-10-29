@@ -1,5 +1,6 @@
 package com.wangxiang.datacollectorserver.web;
 
+import com.alibaba.fastjson.JSON;
 import com.wangxiang.datacollectorserver.domain.dao.*;
 import com.wangxiang.datacollectorserver.domain.entity.RentInfo2Model;
 import com.wangxiang.datacollectorserver.domain.entity.SellRentModel;
@@ -25,27 +26,30 @@ public class SellRentController {
     private TradeInfo1Repository tradeInfo1Repository;
     @Autowired
     private TradeInfo3Repositorty tradeInfo3Repositorty;
+    @Autowired
+    private UserRepository userRepository;
 
     @RequestMapping("/save")
-    public String save() {
-        SellRentModel sellRentModel = new SellRentModel();
-        sellRentModel.setModelType(1);
-        sellRentModel.setResearcher("项健健");
-        TradeInfo1Model tradeInfo1Model = new TradeInfo1Model();
-        tradeInfo1Model.setArea(111);
-        tradeInfo1Model.setTradeIn("xiangjianjian");
-        tradeInfo1Repository.save(tradeInfo1Model);
-        sellRentModel.setTradeInfo1Model(tradeInfo1Model);
-        sellRentRepository.save(sellRentModel);
-        return "成功";
+    public User save(String name, String email) {
+        User user = new User();
+        user.setEmail(email);
+        user.setName(name);
+        userRepository.save(user);
+        return user;
     }
 
     @RequestMapping("/query")
-    public SellRentModel query() {
-        List<SellRentModel> sellRentModels = sellRentRepository.findAllByResearcher("项健健");
-        System.out.println("id: " + sellRentModels.get(0).getTradeInfo1Model().getId());
-        System.out.println("name: " +sellRentModels.get(0).getResearcher());
-        return sellRentModels.get(0);
+    public User query() {
+        return userRepository.findById(1);
+    }
+
+    @RequestMapping("/get/user")
+    public User getUser(String json) {
+        User user = JSON.parseObject(json, User.class);
+        System.out.println(json);
+        System.out.println(user.getEmail());
+        System.out.println(user.getName());
+        return user;
     }
 
 }
