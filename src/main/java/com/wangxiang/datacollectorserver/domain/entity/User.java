@@ -1,4 +1,4 @@
-package com.wangxiang.datacollectorserver.domain;
+package com.wangxiang.datacollectorserver.domain.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

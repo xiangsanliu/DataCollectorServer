@@ -1,5 +1,6 @@
-package com.wangxiang.datacollectorserver.domain;
+package com.wangxiang.datacollectorserver.domain.dao;
 
+import com.wangxiang.datacollectorserver.domain.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
