@@ -11,7 +11,6 @@ import javax.persistence.*;
 public class RentInfo2Model {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = true)
@@ -46,6 +45,16 @@ public class RentInfo2Model {
 
     @Column(nullable = true)
     private float feeOfYear;   //年租金
+
+    private Long userId;
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
     public Long getId() {
         return id;
@@ -141,5 +150,9 @@ public class RentInfo2Model {
 
     public void setFeeOfYear(float feeOfYear) {
         this.feeOfYear = feeOfYear;
+    }
+
+    public void changeId() {
+        id += userId;
     }
 }

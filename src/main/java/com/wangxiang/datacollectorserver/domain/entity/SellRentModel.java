@@ -12,7 +12,6 @@ public class SellRentModel {
 
     // 主键 id
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
     // 表类型，定义在constant里面
@@ -90,6 +89,8 @@ public class SellRentModel {
     
     String researcherTime;  //调查时间
 
+    Long  userId;              //登陆的用户
+
     // 以下四个model根据 modelType 字段确定
     
 
@@ -109,6 +110,14 @@ public class SellRentModel {
     @OneToOne
     @JoinColumn(name = "ti3ForeignKey", nullable = true)
     TradeInfo3Model tradeInfo3Model;
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
     public Long getId() {
         return id;
@@ -437,4 +446,9 @@ public class SellRentModel {
     public void setTradeInfo3Model(TradeInfo3Model tradeInfo3Model) {
         this.tradeInfo3Model = tradeInfo3Model;
     }
+
+    public void changeId() {
+        id += userId;
+    }
+
 }

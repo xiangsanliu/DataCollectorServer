@@ -10,7 +10,6 @@ import javax.persistence.*;
 public class RentInfo4Model {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String rentOut;     //出租人
     private String rentIn;      //承租人
@@ -23,7 +22,15 @@ public class RentInfo4Model {
     private float tradeArea;    //营业面积
     private float shareLandArea;//分摊土地面积
     private float feeOfMoney;   //月租金
+    private Long userId;
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
     public Long getId() {
         return id;
     }
@@ -119,5 +126,10 @@ public class RentInfo4Model {
     public void setFeeOfMoney(float feeOfMoney) {
         this.feeOfMoney = feeOfMoney;
     }
+
+    public void changeId() {
+        id += userId;
+    }
+
 }
 

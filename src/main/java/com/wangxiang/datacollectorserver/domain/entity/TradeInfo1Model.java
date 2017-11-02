@@ -14,7 +14,6 @@ import javax.persistence.Id;
 public class TradeInfo1Model {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String tradeIn;       //买方
@@ -28,7 +27,15 @@ public class TradeInfo1Model {
     private float area;             //卖建面积
     private float price;        //房屋交易总价格
     private float shareLandArea;//分摊土地面积
+    private Long userId;
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
     public Long getId() {
         return id;
     }
@@ -124,5 +131,10 @@ public class TradeInfo1Model {
     public void setShareLandArea(float shareLandArea) {
         this.shareLandArea = shareLandArea;
     }
+
+    public void changeId() {
+        id += userId;
+    }
+
 }
 

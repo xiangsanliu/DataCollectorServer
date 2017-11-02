@@ -14,7 +14,6 @@ import javax.persistence.Id;
 public class TradeInfo3Model {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String tradeIn;       //买方
@@ -28,7 +27,15 @@ public class TradeInfo3Model {
     private String usageAfter;          //买卖后用途
     private float tax;              //房屋交易税费
     private float price;        //房屋交易总价格
+    private Long userId;
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
     public Long getId() {
         return id;
     }
@@ -124,5 +131,10 @@ public class TradeInfo3Model {
     public void setPrice(float price) {
         this.price = price;
     }
+
+    public void changeId() {
+        id += userId;
+    }
+
 }
 
