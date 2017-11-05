@@ -33,4 +33,228 @@ public class HouseRentModel extends BaseSellRent {
     private float taxFee;               //税费
     private float housePureProfit;      //房地纯收益
     private float landNormalPrice;      //土地正常价格
+
+    public int getNearByLandType() {
+        return nearByLandType;
+    }
+
+    public void setNearByLandType(int nearByLandType) {
+        this.nearByLandType = nearByLandType;
+    }
+
+    public int getFloorNum() {
+        return floorNum;
+    }
+
+    public void setFloorNum(int floorNum) {
+        this.floorNum = floorNum;
+    }
+
+    public String getRentLevel() {
+        return rentLevel;
+    }
+
+    public void setRentLevel(String rentLevel) {
+        this.rentLevel = rentLevel;
+    }
+
+    public int getLightAirType() {
+        return lightAirType;
+    }
+
+    public void setLightAirType(int lightAirType) {
+        this.lightAirType = lightAirType;
+    }
+
+    public float getHouseStandardPrice() {
+        return houseStandardPrice;
+    }
+
+    public void setHouseStandardPrice(float houseStandardPrice) {
+        this.houseStandardPrice = houseStandardPrice;
+    }
+
+    public float getTotalArea() {
+        return totalArea;
+    }
+
+    public void setTotalArea(float totalArea) {
+        this.totalArea = totalArea;
+    }
+
+    public float getHouseResetToalPrice() {
+        return houseResetToalPrice;
+    }
+
+    public void setHouseResetToalPrice(float houseResetToalPrice) {
+        this.houseResetToalPrice = houseResetToalPrice;
+    }
+
+    public float getHouseResetPerPrice() {
+        return houseResetPerPrice;
+    }
+
+    public void setHouseResetPerPrice(float houseResetPerPrice) {
+        this.houseResetPerPrice = houseResetPerPrice;
+    }
+
+    public float getHouseTodayValue() {
+        return houseTodayValue;
+    }
+
+    public void setHouseTodayValue(float houseTodayValue) {
+        this.houseTodayValue = houseTodayValue;
+    }
+
+    public float getSubbuildingTodayValue() {
+        return subbuildingTodayValue;
+    }
+
+    public void setSubbuildingTodayValue(float subbuildingTodayValue) {
+        this.subbuildingTodayValue = subbuildingTodayValue;
+    }
+
+    public int getYearRobust() {
+        return yearRobust;
+    }
+
+    public void setYearRobust(int yearRobust) {
+        this.yearRobust = yearRobust;
+    }
+
+    public int getYearUsed() {
+        return yearUsed;
+    }
+
+    public void setYearUsed(int yearUsed) {
+        this.yearUsed = yearUsed;
+    }
+
+    public String getRentOut() {
+        return rentOut;
+    }
+
+    public void setRentOut(String rentOut) {
+        this.rentOut = rentOut;
+    }
+
+    public String getRentIn() {
+        return rentIn;
+    }
+
+    public void setRentIn(String rentIn) {
+        this.rentIn = rentIn;
+    }
+
+    public String getRentTime() {
+        return rentTime;
+    }
+
+    public void setRentTime(String rentTime) {
+        this.rentTime = rentTime;
+    }
+
+    public String getRentMethod() {
+        return rentMethod;
+    }
+
+    public void setRentMethod(String rentMethod) {
+        this.rentMethod = rentMethod;
+    }
+
+    public String getHouseNomalProfit() {
+        return houseNomalProfit;
+    }
+
+    public void setHouseNomalProfit(String houseNomalProfit) {
+        this.houseNomalProfit = houseNomalProfit;
+    }
+
+    public String getHouseNomalTotalFee() {
+        return houseNomalTotalFee;
+    }
+
+    public void setHouseNomalTotalFee(String houseNomalTotalFee) {
+        this.houseNomalTotalFee = houseNomalTotalFee;
+    }
+
+    public float getPriceOfYear() {
+        return priceOfYear;
+    }
+
+    public void setPriceOfYear(float priceOfYear) {
+        this.priceOfYear = priceOfYear;
+    }
+
+    public float getPriceOfFix() {
+        return priceOfFix;
+    }
+
+    public void setPriceOfFix(float priceOfFix) {
+        this.priceOfFix = priceOfFix;
+    }
+
+    public float getInterestOfDeposit() {
+        return interestOfDeposit;
+    }
+
+    public void setInterestOfDeposit(float interestOfDeposit) {
+        this.interestOfDeposit = interestOfDeposit;
+    }
+
+    public float getOldFee() {
+        return oldFee;
+    }
+
+    public void setOldFee(float oldFee) {
+        this.oldFee = oldFee;
+    }
+
+    public float getInsuranceFee() {
+        return insuranceFee;
+    }
+
+    public void setInsuranceFee(float insuranceFee) {
+        this.insuranceFee = insuranceFee;
+    }
+
+    public float getOtherProfit() {
+        return otherProfit;
+    }
+
+    public void setOtherProfit(float otherProfit) {
+        this.otherProfit = otherProfit;
+    }
+
+    public float getManageFree() {
+        return manageFree;
+    }
+
+    public void setManageFree(float manageFree) {
+        this.manageFree = manageFree;
+    }
+
+    public float getTaxFee() {
+        return taxFee;
+    }
+
+    public void setTaxFee(float taxFee) {
+        this.taxFee = taxFee;
+    }
+
+    public float getHousePureProfit() {
+        return housePureProfit;
+    }
+
+    public void setHousePureProfit(float housePureProfit) {
+        this.housePureProfit = housePureProfit;
+    }
+
+    public float getLandNormalPrice() {
+        return landNormalPrice;
+    }
+
+    public void setLandNormalPrice(float landNormalPrice) {
+        this.landNormalPrice = landNormalPrice;
+    }
 }
