@@ -27,9 +27,9 @@ public class SellRentController {
 
     @GetMapping("/save/sellrent")
     public void saveSellRent(String sellRentJson) {
-        SellRentModel sellRentModel = JSON.parseObject(sellRentJson, SellRentModel.class);
-        sellRentModel.changeId();
-        sellRentRepository.save(sellRentModel);
+        BaseSellRent baseSellRent = JSON.parseObject(sellRentJson, BaseSellRent.class);
+        baseSellRent.changeId();
+        sellRentRepository.save(baseSellRent);
     }
 
     @GetMapping("/save/rentinfo2")
