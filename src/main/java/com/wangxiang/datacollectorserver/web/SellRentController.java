@@ -8,80 +8,40 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/sellrent")
+import java.util.List;
+
+@RequestMapping("/get")
 @RestController
 public class SellRentController {
 
     @Autowired
-    private SellRentRepository sellRentRepository;
+    CommercialHouseRepository commercialHouseRepository;
     @Autowired
-    private RentInfo2Repository rentInfo2Repository;
+    HouseRentRepository houseRentRepository;
     @Autowired
-    private RentInfo4Repository rentInfo4Repository;
+    HouseTradeRepository houseTradeRepository;
     @Autowired
-    private TradeInfo1Repository tradeInfo1Repository;
+    ShopRentRepository shopRentRepository;
     @Autowired
-    private TradeInfo3Repository tradeInfo3Repository;
-    @Autowired
-    private UserRepository userRepository;
+    UserRepository userRepository;
 
-    @GetMapping("/save/sellrent")
-    public void saveSellRent(String sellRentJson) {
-        BaseSellRent baseSellRent = JSON.parseObject(sellRentJson, BaseSellRent.class);
-        baseSellRent.changeId();
-        sellRentRepository.save(baseSellRent);
+    @GetMapping("/commercial")
+    public List<CommercialHouseTradeModel> getCommercialHouseTradeByUserId(Long userId) {
+        return commercialHouseRepository.findAllByUserId(userId);
     }
 
-    @GetMapping("/save/rentinfo2")
-    public void saveRentInfo2(String rentInfo2Json) {
-        RentInfo2Model rentInfo2Model = JSON.parseObject(rentInfo2Json, RentInfo2Model.class);
-        rentInfo2Model.changeId();
-        rentInfo2Repository.save(rentInfo2Model);
+    @GetMapping("/houserent")
+    public List<HouseRentModel> getHouseRent(Long userId) {
+        return houseRentRepository.findAllByUserId(userId);
     }
 
-    @GetMapping("/save/rentinfo4")
-    public void saveRentInfo4(String rentInfo4Json) {
-        RentInfo4Model rentInfo4Model = JSON.parseObject(rentInfo4Json, RentInfo4Model.class);
-        rentInfo4Model.changeId();
-        rentInfo4Repository.save(rentInfo4Model);
+    @GetMapping("/housetrade")
+    public List<HouseTradeModel> getHouseTrade(Long userId) {
+        return houseTradeRepository.findAllByUserId(userId);
     }
 
-    @GetMapping("/save/tradeinfo1")
-    public void saveTradeInfo1(String tradeInfo1Json) {
-        TradeInfo1Model tradeInfo1Model = JSON.parseObject(tradeInfo1Json, TradeInfo1Model.class);
-        tradeInfo1Model.changeId();
-        tradeInfo1Repository.save(tradeInfo1Model);
+    @GetMapping("/shoprent")
+    public List<ShopRentModel> getShopRent(Long userId) {
+        return shopRentRepository.findAllByUserId(userId);
     }
-
-    @GetMapping("/save/tradeinfo3")
-    public void saveTradeInfo3(String tradeInfo3Json) {
-        TradeInfo3Model tradeInfo3Model = JSON.parseObject(tradeInfo3Json, TradeInfo3Model.class);
-        tradeInfo3Model.changeId();
-        tradeInfo3Repository.save(tradeInfo3Model);
-    }
-
-    @RequestMapping("/save")
-    public User save(String name, String email) {
-        User user = new User();
-        user.setEmail(email);
-        user.setName(name);
-        userRepository.save(user);
-        return user;
-    }
-
-    @RequestMapping("/query")
-    public User query() {
-        return userRepository.findById(1);
-    }
-
-    @RequestMapping("/get/user")
-    public User getUser(String json) {
-        User user = JSON.parseObject(json, User.class);
-        userRepository.save(user);
-        System.out.println(user.getId());
-        System.out.println(user.getId());
-        System.out.println(json);
-        return user;
-    }
-
 }

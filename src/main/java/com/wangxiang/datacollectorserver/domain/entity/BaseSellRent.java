@@ -14,6 +14,7 @@ public class BaseSellRent {
     @Id
     private Long id;
 
+    //土地基本信息
     private String landLoacation;       //宗地位置
     
     private String landRange;           //土地四至
@@ -48,7 +49,7 @@ public class BaseSellRent {
     
     private float landServiceableLife;         //土地使用年限
 
-
+    //房屋信息
     private String houseLocation;        //房屋位置/柜台具体位置
 
     private int structureType;      //房屋结构

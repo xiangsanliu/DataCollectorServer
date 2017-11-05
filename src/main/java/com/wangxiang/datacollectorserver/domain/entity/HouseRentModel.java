@@ -24,7 +24,7 @@ public class HouseRentModel extends BaseSellRent {
     private String houseNomalProfit;    //房屋正常收益
     private String houseNomalTotalFee;  //房屋正常总费用
     private float priceOfYear;      //其中年租金
-    private float priceOfFix;       //其中维修费
+    private float fixFee;       //其中维修费
     private float interestOfDeposit;        //押金利息
     private float oldFee;               //折旧费
     private float insuranceFee;         //保险费
@@ -186,12 +186,12 @@ public class HouseRentModel extends BaseSellRent {
         this.priceOfYear = priceOfYear;
     }
 
-    public float getPriceOfFix() {
-        return priceOfFix;
+    public float getFixFee() {
+        return fixFee;
     }
 
-    public void setPriceOfFix(float priceOfFix) {
-        this.priceOfFix = priceOfFix;
+    public void setFixFee(float fixFee) {
+        this.fixFee = fixFee;
     }
 
     public float getInterestOfDeposit() {
