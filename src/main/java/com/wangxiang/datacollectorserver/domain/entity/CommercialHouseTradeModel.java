@@ -1,6 +1,9 @@
 package com.wangxiang.datacollectorserver.domain.entity;
 
-public class CommercialHouseTradeModel extends BaseSellRent {
+import javax.persistence.Entity;
+
+@Entity
+public class CommercialHouseTradeModel extends CitySellRent {
     private int useageActual;   //实际用途
     private int useagePlande;   //规划用途
 

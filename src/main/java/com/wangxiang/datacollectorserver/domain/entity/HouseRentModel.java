@@ -1,6 +1,9 @@
 package com.wangxiang.datacollectorserver.domain.entity;
 
-public class HouseRentModel extends BaseSellRent {
+import javax.persistence.Entity;
+
+@Entity
+public class HouseRentModel extends CitySellRent {
     private int nearByLandType;     //周围土地类型
 
     //房屋情况

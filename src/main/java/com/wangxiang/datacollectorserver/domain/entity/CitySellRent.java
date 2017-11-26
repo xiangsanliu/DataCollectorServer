@@ -7,8 +7,8 @@ import javax.persistence.*;
  * StormPhoenix is a intelligent Android developer.
  */
 
-@Entity
-public class BaseSellRent {
+@MappedSuperclass
+public class CitySellRent {
 
     // 主键 id
     @Id
@@ -70,7 +70,9 @@ public class BaseSellRent {
     
     private String researcherTime;  //调查时间
 
-    private Long  userId;              //登陆的用户
+    @OneToOne(cascade = CascadeType.ALL)
+    private User user;
+
 
     public Long getId() {
         return id;
@@ -294,18 +296,6 @@ public class BaseSellRent {
 
     public void setResearcherTime(String researcherTime) {
         this.researcherTime = researcherTime;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public void changeId() {
-        id += userId;
     }
 
 }

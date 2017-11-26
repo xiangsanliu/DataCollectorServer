@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface ShopRentRepository extends JpaRepository<ShopRentModel, Long> {
-    List<ShopRentModel> findAllByUserId(Long userId);
+    List<ShopRentModel> findShopRentModelsByUserId(Long user_id);
 }
