@@ -1,9 +1,14 @@
 package com.wangxiang.datacollectorserver.domain.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
-public class HouseTradeModel extends CitySellRent {
+public class HouseTradeModel {
+
+    @Id
+    private Long id;
+
     //土地基本状况
     private int useageActual;   //实际用途
     private int useagePlande;   //规划用途

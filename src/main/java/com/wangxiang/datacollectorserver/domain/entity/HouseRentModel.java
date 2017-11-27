@@ -1,9 +1,14 @@
 package com.wangxiang.datacollectorserver.domain.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
-public class HouseRentModel extends CitySellRent {
+public class HouseRentModel {
+
+    @Id
+    private Long id;
+
     private int nearByLandType;     //周围土地类型
 
     //房屋情况

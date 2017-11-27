@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface CommercialHouseRepository extends JpaRepository<CommercialHouseTradeModel, Long> {
-    List<CommercialHouseTradeModel> findCommercialHouseTradeModelsByUserId(Long user_id);
+public interface CommercialHouseTradeRepository extends JpaRepository<CommercialHouseTradeModel, Long> {
+    CommercialHouseTradeModel findCommercialHouseTradeModelById(Long id);
 }

@@ -1,9 +1,13 @@
 package com.wangxiang.datacollectorserver.domain.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
-public class ShopRentModel extends CitySellRent {
+public class ShopRentModel{
+
+    @Id
+    private Long id;
 
     private int useageActual;   //实际用途
     private int useagePlande;   //规划用途

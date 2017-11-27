@@ -1,5 +1,6 @@
 package com.wangxiang.datacollectorserver.domain.entity;
 
+
 import javax.persistence.*;
 
 /**
@@ -7,7 +8,7 @@ import javax.persistence.*;
  * StormPhoenix is a intelligent Android developer.
  */
 
-@MappedSuperclass
+@Entity
 public class CitySellRent {
 
     // 主键 id
@@ -15,8 +16,9 @@ public class CitySellRent {
     private Long id;
 
     //土地基本信息
+
     private String landLoacation;       //宗地位置
-    
+
     private String landRange;           //土地四至
     
     private String nearbyStreetName;    //所临道路名称
@@ -30,7 +32,8 @@ public class CitySellRent {
     private String landWidth;           //宗地宽度
     
     private int landDevelopingSituation; //土地开发状况
-    
+
+    @Column(nullable = false)
     private int buildingDirection;       //建筑朝向
     
     private int nearbyStreetSituation;      //临界状况
@@ -70,9 +73,11 @@ public class CitySellRent {
     
     private String researcherTime;  //调查时间
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private User user;
+    @Column(nullable = false)
+    private Long userId;
 
+    @Column(nullable = false)
+    private int modelType;
 
     public Long getId() {
         return id;
@@ -298,4 +303,19 @@ public class CitySellRent {
         this.researcherTime = researcherTime;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public int getModelType() {
+        return modelType;
+    }
+
+    public void setModelType(int modelType) {
+        this.modelType = modelType;
+    }
 }

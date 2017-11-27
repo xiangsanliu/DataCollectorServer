@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface HouseTradeRepository extends JpaRepository<HouseTradeModel, Long> {
-    List<HouseTradeModel> findHouseTradeModelsByUserId(Long user_id);
+    HouseTradeModel findHouseTradeModelById(Long id);
 }
