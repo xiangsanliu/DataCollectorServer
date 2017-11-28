@@ -41,8 +41,8 @@ public class CitySellRentController {
     }
 
     @PostMapping("/get/citysellrents")
-    public List<CitySellRent> getCitySellRents(Long id) {
-        return citySellRentRepository.findCitySellRentsById(id);
+    public List<CitySellRent> getCitySellRents(Long userId) {
+        return citySellRentRepository.findCitySellRentsByUserId(userId);
     }
 
     @PostMapping("/get/citysellrent")
@@ -80,6 +80,7 @@ public class CitySellRentController {
 
     @PostMapping("/save/city")
     public void saveCitySellRent(String content) {
+        System.out.println(content);
         citySellRentRepository.save(JSON.parseObject(content, CitySellRent.class));
     }
 
