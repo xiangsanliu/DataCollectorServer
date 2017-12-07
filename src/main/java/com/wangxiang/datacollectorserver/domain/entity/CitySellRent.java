@@ -59,7 +59,7 @@ public class CitySellRent {
     
     private int qualityLevel;       //质量等级
 
-    private float buindingArea;     //建筑面积
+    private float buildingArea;     //建筑面积
 
     private float houseArea;             //房屋建筑面积
 
@@ -247,12 +247,12 @@ public class CitySellRent {
         this.qualityLevel = qualityLevel;
     }
 
-    public float getBuindingArea() {
-        return buindingArea;
+    public float getBuildingArea() {
+        return buildingArea;
     }
 
-    public void setBuindingArea(float buindingArea) {
-        this.buindingArea = buindingArea;
+    public void setBuindingArea(float buildingArea) {
+        this.buildingArea = buildingArea;
     }
 
     public float getHouseArea() {
