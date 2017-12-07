@@ -80,19 +80,28 @@ public class CitySellRentController {
 
     @RequestMapping("/save/city")
     public void saveCitySellRent(String content) {
-        citySellRentRepository.save(JSON.parseObject(content, CitySellRent.class));
-        System.out.println("content");
-        System.out.println(content);
+        CitySellRent citySellRent = JSON.parseObject(content, CitySellRent.class);
+        if (citySellRentRepository.exists(citySellRent.getId())) {
+            citySellRentRepository.delete(citySellRent.getId());
+        }
+        citySellRentRepository.save(citySellRent);
     }
 
     @RequestMapping("/save/commercial")
     public void saveCommercialHouseTrade(String content) {
-        commercialHouseTradeRepository.save(JSON.parseObject(content, CommercialHouseTradeModel.class));
+        CommercialHouseTradeModel commercialHouseTradeModel = JSON.parseObject(content, CommercialHouseTradeModel.class);
+        if (commercialHouseTradeRepository.exists(commercialHouseTradeModel.getId()))
+            commercialHouseTradeRepository.delete(commercialHouseTradeModel.getId());
+        commercialHouseTradeRepository.save(commercialHouseTradeModel);
+
     }
 
     @RequestMapping("/save/houserent")
     public void saveHouseRent(String content) {
-        houseRentRepository.save(JSON.parseObject(content, HouseRentModel.class));
+        HouseRentModel model  = JSON.parseObject(content, HouseRentModel.class);
+        if (houseRentRepository.exists(model.getId()))
+            commercialHouseTradeRepository.delete(model.getId());
+        houseRentRepository.save(model);
     }
 
     @RequestMapping("/save/housetrade")

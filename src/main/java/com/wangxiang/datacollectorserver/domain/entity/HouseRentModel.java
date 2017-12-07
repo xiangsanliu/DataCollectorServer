@@ -42,6 +42,14 @@ public class HouseRentModel {
     private float housePureProfit;      //房地纯收益
     private float landNormalPrice;      //土地正常价格
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public int getNearByLandType() {
         return nearByLandType;
     }
