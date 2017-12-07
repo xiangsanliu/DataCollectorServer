@@ -72,12 +72,6 @@ public class CitySellRentController {
 
 
 
-
-
-
-
-
-
     @RequestMapping("/save/city")
     public void saveCitySellRent(String content) {
         CitySellRent citySellRent = JSON.parseObject(content, CitySellRent.class);
@@ -100,24 +94,47 @@ public class CitySellRentController {
     public void saveHouseRent(String content) {
         HouseRentModel model  = JSON.parseObject(content, HouseRentModel.class);
         if (houseRentRepository.exists(model.getId()))
-            commercialHouseTradeRepository.delete(model.getId());
+            houseRentRepository.delete(model.getId());
         houseRentRepository.save(model);
     }
 
     @RequestMapping("/save/housetrade")
     public void saveHouseTrade(String content) {
-        houseTradeRepository.save(JSON.parseObject(content, HouseTradeModel.class));
+        HouseTradeModel model = JSON.parseObject(content, HouseTradeModel.class);
+        if (houseTradeRepository.exists(model.getId()))
+            houseTradeRepository.delete(model.getId());
+        houseTradeRepository.save(model);
     }
 
     @RequestMapping("/save/shoprent")
     public void saveShopRent(String content) {
-        shopRentRepository.save(JSON.parseObject(content, ShopRentModel.class));
+        ShopRentModel model = JSON.parseObject(content, ShopRentModel.class);
+        if (shopRentRepository.exists(model.getId()))
+            shopRentRepository.delete(model.getId());
+        shopRentRepository.save(model);
     }
 
 
     @RequestMapping("/delete/city")
     public void deleteCitySellRent(Long id) {
-        citySellRentRepository.delete(id);
+        if (citySellRentRepository.exists(id) ) {
+            CitySellRent citySellRent = citySellRentRepository.findCitySellRentById(id);
+            switch (citySellRent.getModelType()) {
+                case 0:
+                    commercialHouseTradeRepository.delete(id);
+                    break;
+                case 1:
+                    shopRentRepository.delete(id);
+                    break;
+                case 2:
+                    houseTradeRepository.delete(id);
+                    break;
+                case 3:
+                    houseRentRepository.delete(id);
+                    break;
+            }
+            citySellRentRepository.delete(id);
+        }
     }
 
     @RequestMapping("/test")

@@ -21,6 +21,15 @@ public class HouseTradeModel {
     private int lightAirType;           //采光通风状况
     private float houseStandardPrice;    //房屋标准造价
     private float totalArea;            //总占地面积
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     private float houseResetTotalPrice;      //房屋重置总价
     private float subbuildingResetPrice;    //其它附属建筑物重置总价
     private float houseTodayValue;      //房屋现值

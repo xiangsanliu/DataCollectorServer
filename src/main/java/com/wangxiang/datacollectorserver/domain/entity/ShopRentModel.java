@@ -9,6 +9,14 @@ public class ShopRentModel{
     @Id
     private Long id;
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
     private int useageActual;   //实际用途
     private int useagePlande;   //规划用途
 
