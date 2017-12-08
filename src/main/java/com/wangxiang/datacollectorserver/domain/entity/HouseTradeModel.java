@@ -11,7 +11,7 @@ public class HouseTradeModel {
 
     //土地基本状况
     private int useageActual;   //实际用途
-    private int useagePlande;   //规划用途
+    private int useagePlaned;   //规划用途
     private int nearByLandType;     //周围土地类型
 
     //房屋情况
@@ -21,15 +21,6 @@ public class HouseTradeModel {
     private int lightAirType;           //采光通风状况
     private float houseStandardPrice;    //房屋标准造价
     private float totalArea;            //总占地面积
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     private float houseResetTotalPrice;      //房屋重置总价
     private float subbuildingResetPrice;    //其它附属建筑物重置总价
     private float houseTodayValue;      //房屋现值
@@ -45,11 +36,19 @@ public class HouseTradeModel {
     private String useageBeforeTrade;    //买卖前用途
     private String useageAfterTrade;    //买卖后用途
     private float tradeBuildingArea;    //出卖建筑面积
-    private float buindingTradeSharedLandArea;  //出卖建筑分摊土地面积
+    private float buildingTradeSharedLandArea;  //出卖建筑分摊土地面积
     private float houseTradeTotalPrice;      //房屋交易总价
     private float houseTradeTax;             //房屋交易税费
     private float landTradeTotalPirce;         //土地交易总价
     private float landPricePerSquare;           //单位面积地价
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public int getUseageActual() {
         return useageActual;
@@ -59,12 +58,12 @@ public class HouseTradeModel {
         this.useageActual = useageActual;
     }
 
-    public int getUseagePlande() {
-        return useagePlande;
+    public int getUseagePlaned() {
+        return useagePlaned;
     }
 
-    public void setUseagePlande(int useagePlande) {
-        this.useagePlande = useagePlande;
+    public void setUseagePlaned(int useagePlaned) {
+        this.useagePlaned = useagePlaned;
     }
 
     public int getNearByLandType() {
@@ -227,12 +226,12 @@ public class HouseTradeModel {
         this.tradeBuildingArea = tradeBuildingArea;
     }
 
-    public float getBuindingTradeSharedLandArea() {
-        return buindingTradeSharedLandArea;
+    public float getBuildingTradeSharedLandArea() {
+        return buildingTradeSharedLandArea;
     }
 
-    public void setBuindingTradeSharedLandArea(float buindingTradeSharedLandArea) {
-        this.buindingTradeSharedLandArea = buindingTradeSharedLandArea;
+    public void setBuildingTradeSharedLandArea(float buildingTradeSharedLandArea) {
+        this.buildingTradeSharedLandArea = buildingTradeSharedLandArea;
     }
 
     public float getHouseTradeTotalPrice() {
