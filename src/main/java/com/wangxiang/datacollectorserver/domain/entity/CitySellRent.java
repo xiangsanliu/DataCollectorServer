@@ -65,9 +65,9 @@ public class CitySellRent {
 
     private String detail;              //详细说明
     
-    private float longitude;        //经度
+    private double longitude;        //经度
     
-    private float latitude;         //维度
+    private double latitude;         //维度
     
     private String researcher;      //调查人
     
@@ -251,7 +251,7 @@ public class CitySellRent {
         return buildingArea;
     }
 
-    public void setBuindingArea(float buildingArea) {
+    public void setBuildingArea(float buildingArea) {
         this.buildingArea = buildingArea;
     }
 
@@ -271,19 +271,19 @@ public class CitySellRent {
         this.detail = detail;
     }
 
-    public float getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(float longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
-    public float getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(float latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 

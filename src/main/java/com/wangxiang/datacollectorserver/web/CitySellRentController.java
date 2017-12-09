@@ -1,6 +1,7 @@
 package com.wangxiang.datacollectorserver.web;
 
 import com.alibaba.fastjson.JSON;
+import com.wangxiang.datacollectorserver.Constants;
 import com.wangxiang.datacollectorserver.domain.dao.*;
 import com.wangxiang.datacollectorserver.domain.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +41,8 @@ public class CitySellRentController {
     }
 
     @RequestMapping("/get/citysellrents")
-    public List<CitySellRent> getCitySellRents(Long userId) {
-        System.out.println(userId+"");
-        return citySellRentRepository.findCitySellRentsByUserId(userId);
+    public List<CitySellRent> getCitySellRents(Long userId, int modelType) {
+        return citySellRentRepository.findCitySellRentsByUserIdAndModelType(userId, modelType);
     }
 
     @RequestMapping("/get/citysellrent")
@@ -120,16 +120,16 @@ public class CitySellRentController {
         if (citySellRentRepository.exists(id) ) {
             CitySellRent citySellRent = citySellRentRepository.findCitySellRentById(id);
             switch (citySellRent.getModelType()) {
-                case 0:
+                case Constants.COMMERCIAL_HOUSE_TRADE:
                     commercialHouseTradeRepository.delete(id);
                     break;
-                case 1:
+                case Constants.SHOP_RENT:
                     shopRentRepository.delete(id);
                     break;
-                case 2:
+                case Constants.HOUSE_SELL:
                     houseTradeRepository.delete(id);
                     break;
-                case 3:
+                case Constants.HOUSE_RENT:
                     houseRentRepository.delete(id);
                     break;
             }

@@ -8,4 +8,6 @@ import java.util.List;
 public interface CitySellRentRepository extends JpaRepository<CitySellRent, Long> {
     CitySellRent findCitySellRentById(Long id);
     List<CitySellRent> findCitySellRentsByUserId(Long userId);
+    List<CitySellRent> findCitySellRentsByUserIdAndModelType(Long userId, int modelType);
+
 }
