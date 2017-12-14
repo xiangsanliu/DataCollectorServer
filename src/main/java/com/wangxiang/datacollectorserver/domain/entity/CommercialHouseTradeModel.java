@@ -9,6 +9,42 @@ public class CommercialHouseTradeModel{
     @Id
     private Long id;
 
+    private int useageActual;   //实际用途
+    private int useagePlande;   //规划用途
+
+    //房屋情况
+    private String floorNum;               //楼层数
+//    private String tradeLevel;          //买卖层次
+    private String houseStandardPrice;    //房屋标准造价
+    private String buildingProjectPrice;     //建筑工程造价
+    private String serviceFee;               //小区公共设施配套费
+    private String otherDirectFee;           //其他建房直接费用
+    private String manageFeeAndProfit;       //管理费和利润
+    private String unPredictedFee;           //不可预见费
+    private String landCompensateFee;        //土地征收补偿费
+    private String agentFee;                 //代收费用
+    private String cityBigSuiteFee;          //城市大配套费用
+    private String otherFee;                     //其他费用
+
+    //买卖情况
+    private String developer;           //商品房开发单位
+    private String tradeIn;             //买方
+    private int tradeType;              //买卖方式
+    private String loanYear;       //按揭年限
+    private String tradeLevel;      //买卖层次
+    private String tradeTime;       //商品房出售时间
+    private String useage;           //房屋用途
+    private String plotRatePlaned;  //规划容积率
+    private String buildingDensity;  //建筑面积
+    private String wholeBuildingPrice;   //整栋商品楼总售价
+    private String wholeBuildingFee;     //整栋商品楼总造价
+    private String interest;             //占用资金应付利息sp
+    private String profitOfDeveloper;    //开发公司利润
+    private String price;        //房屋交易总价格
+    private String tax;          //房屋交易税费
+    private String landPricePerSquare;   //单位面积地价
+    private String shareLandArea;//分摊土地面积
+
     public Long getId() {
         return id;
     }
@@ -16,42 +52,6 @@ public class CommercialHouseTradeModel{
     public void setId(Long id) {
         this.id = id;
     }
-
-    private int useageActual;   //实际用途
-    private int useagePlande;   //规划用途
-
-    //房屋情况
-    private int floorNum;               //楼层数
-//    private String tradeLevel;          //买卖层次
-    private float houseStandardPrice;    //房屋标准造价
-    private float buildingProjectPrice;     //建筑工程造价
-    private float serviceFee;               //小区公共设施配套费
-    private float otherDirectFee;           //其他建房直接费用
-    private float manageFeeAndProfit;       //管理费和利润
-    private float unPredictedFee;           //不可预见费
-    private float landCompensateFee;        //土地征收补偿费
-    private float agentFee;                 //代收费用
-    private float cityBigSuiteFee;          //城市大配套费用
-    private float otherFee;                     //其他费用
-
-    //买卖情况
-    private String developer;           //商品房开发单位
-    private String tradeIn;             //买方
-    private int tradeType;              //买卖方式
-    private int loanYear;       //按揭年限
-    private String tradeLevel;      //买卖层次
-    private String tradeTime;       //商品房出售时间
-    private String useage;           //房屋用途
-    private float plotRatePlaned;  //规划容积率
-    private float buildingDensity;  //建筑面积
-    private float wholeBuildingPrice;   //整栋商品楼总售价
-    private float wholeBuildingFee;     //整栋商品楼总造价
-    private float interest;             //占用资金应付利息
-    private float profitOfDeveloper;    //开发公司利润
-    private float price;        //房屋交易总价格
-    private float tax;          //房屋交易税费
-    private float landPricePerSquare;   //单位面积地价
-    private float shareLandArea;//分摊土地面积
 
     public int getUseageActual() {
         return useageActual;
@@ -69,91 +69,91 @@ public class CommercialHouseTradeModel{
         this.useagePlande = useagePlande;
     }
 
-    public int getFloorNum() {
+    public String getFloorNum() {
         return floorNum;
     }
 
-    public void setFloorNum(int floorNum) {
+    public void setFloorNum(String floorNum) {
         this.floorNum = floorNum;
     }
 
-    public float getHouseStandardPrice() {
+    public String getHouseStandardPrice() {
         return houseStandardPrice;
     }
 
-    public void setHouseStandardPrice(float houseStandardPrice) {
+    public void setHouseStandardPrice(String houseStandardPrice) {
         this.houseStandardPrice = houseStandardPrice;
     }
 
-    public float getBuildingProjectPrice() {
+    public String getBuildingProjectPrice() {
         return buildingProjectPrice;
     }
 
-    public void setBuildingProjectPrice(float buildingProjectPrice) {
+    public void setBuildingProjectPrice(String buildingProjectPrice) {
         this.buildingProjectPrice = buildingProjectPrice;
     }
 
-    public float getServiceFee() {
+    public String getServiceFee() {
         return serviceFee;
     }
 
-    public void setServiceFee(float serviceFee) {
+    public void setServiceFee(String serviceFee) {
         this.serviceFee = serviceFee;
     }
 
-    public float getOtherDirectFee() {
+    public String getOtherDirectFee() {
         return otherDirectFee;
     }
 
-    public void setOtherDirectFee(float otherDirectFee) {
+    public void setOtherDirectFee(String otherDirectFee) {
         this.otherDirectFee = otherDirectFee;
     }
 
-    public float getManageFeeAndProfit() {
+    public String getManageFeeAndProfit() {
         return manageFeeAndProfit;
     }
 
-    public void setManageFeeAndProfit(float manageFeeAndProfit) {
+    public void setManageFeeAndProfit(String manageFeeAndProfit) {
         this.manageFeeAndProfit = manageFeeAndProfit;
     }
 
-    public float getUnPredictedFee() {
+    public String getUnPredictedFee() {
         return unPredictedFee;
     }
 
-    public void setUnPredictedFee(float unPredictedFee) {
+    public void setUnPredictedFee(String unPredictedFee) {
         this.unPredictedFee = unPredictedFee;
     }
 
-    public float getLandCompensateFee() {
+    public String getLandCompensateFee() {
         return landCompensateFee;
     }
 
-    public void setLandCompensateFee(float landCompensateFee) {
+    public void setLandCompensateFee(String landCompensateFee) {
         this.landCompensateFee = landCompensateFee;
     }
 
-    public float getAgentFee() {
+    public String getAgentFee() {
         return agentFee;
     }
 
-    public void setAgentFee(float agentFee) {
+    public void setAgentFee(String agentFee) {
         this.agentFee = agentFee;
     }
 
-    public float getCityBigSuiteFee() {
+    public String getCityBigSuiteFee() {
         return cityBigSuiteFee;
     }
 
-    public void setCityBigSuiteFee(float cityBigSuiteFee) {
+    public void setCityBigSuiteFee(String cityBigSuiteFee) {
         this.cityBigSuiteFee = cityBigSuiteFee;
     }
 
-    public float getOtherFee() {
+    public String getOtherFee() {
         return otherFee;
     }
 
-    public void setOtherFee(float otherFee) {
+    public void setOtherFee(String otherFee) {
         this.otherFee = otherFee;
     }
 
@@ -181,11 +181,11 @@ public class CommercialHouseTradeModel{
         this.tradeType = tradeType;
     }
 
-    public int getLoanYear() {
+    public String getLoanYear() {
         return loanYear;
     }
 
-    public void setLoanYear(int loanYear) {
+    public void setLoanYear(String loanYear) {
         this.loanYear = loanYear;
     }
 
@@ -213,83 +213,83 @@ public class CommercialHouseTradeModel{
         this.useage = useage;
     }
 
-    public float getPlotRatePlaned() {
+    public String getPlotRatePlaned() {
         return plotRatePlaned;
     }
 
-    public void setPlotRatePlaned(float plotRatePlaned) {
+    public void setPlotRatePlaned(String plotRatePlaned) {
         this.plotRatePlaned = plotRatePlaned;
     }
 
-    public float getBuildingDensity() {
+    public String getBuildingDensity() {
         return buildingDensity;
     }
 
-    public void setBuildingDensity(float buildingDensity) {
+    public void setBuildingDensity(String buildingDensity) {
         this.buildingDensity = buildingDensity;
     }
 
-    public float getWholeBuildingPrice() {
+    public String getWholeBuildingPrice() {
         return wholeBuildingPrice;
     }
 
-    public void setWholeBuildingPrice(float wholeBuildingPrice) {
+    public void setWholeBuildingPrice(String wholeBuildingPrice) {
         this.wholeBuildingPrice = wholeBuildingPrice;
     }
 
-    public float getWholeBuildingFee() {
+    public String getWholeBuildingFee() {
         return wholeBuildingFee;
     }
 
-    public void setWholeBuildingFee(float wholeBuildingFee) {
+    public void setWholeBuildingFee(String wholeBuildingFee) {
         this.wholeBuildingFee = wholeBuildingFee;
     }
 
-    public float getInterest() {
+    public String getInterest() {
         return interest;
     }
 
-    public void setInterest(float interest) {
+    public void setInterest(String interest) {
         this.interest = interest;
     }
 
-    public float getProfitOfDeveloper() {
+    public String getProfitOfDeveloper() {
         return profitOfDeveloper;
     }
 
-    public void setProfitOfDeveloper(float profitOfDeveloper) {
+    public void setProfitOfDeveloper(String profitOfDeveloper) {
         this.profitOfDeveloper = profitOfDeveloper;
     }
 
-    public float getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public float getTax() {
+    public String getTax() {
         return tax;
     }
 
-    public void setTax(float tax) {
+    public void setTax(String tax) {
         this.tax = tax;
     }
 
-    public float getLandPricePerSquare() {
+    public String getLandPricePerSquare() {
         return landPricePerSquare;
     }
 
-    public void setLandPricePerSquare(float landPricePerSquare) {
+    public void setLandPricePerSquare(String landPricePerSquare) {
         this.landPricePerSquare = landPricePerSquare;
     }
 
-    public float getShareLandArea() {
+    public String getShareLandArea() {
         return shareLandArea;
     }
 
-    public void setShareLandArea(float shareLandArea) {
+    public void setShareLandArea(String shareLandArea) {
         this.shareLandArea = shareLandArea;
     }
 }

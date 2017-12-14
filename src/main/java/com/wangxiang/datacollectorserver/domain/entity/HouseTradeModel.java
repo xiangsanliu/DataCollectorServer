@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class HouseTradeModel {
+public class HouseTradeModel{
 
     @Id
     private Long id;
@@ -15,18 +15,18 @@ public class HouseTradeModel {
     private int nearByLandType;     //周围土地类型
 
     //房屋情况
-    private int floorNum;               //楼层数
+    private String floorNum;               //楼层数
     private String tradeLevel;          //买卖层次
     private int decorationType;         //装修标准
     private int lightAirType;           //采光通风状况
-    private float houseStandardPrice;    //房屋标准造价
-    private float totalArea;            //总占地面积
-    private float houseResetTotalPrice;      //房屋重置总价
-    private float subbuildingResetPrice;    //其它附属建筑物重置总价
-    private float houseTodayValue;      //房屋现值
-    private float subbuildingTodayValue;    //其它附属建筑物现值
-    private int yearRobust;             //耐用年限
-    private int yearUsed;               //已用年限
+    private String houseStandardPrice;    //房屋标准造价
+    private String totalArea;            //总占地面积
+    private String houseResetTotalPrice;      //房屋重置总价
+    private String subbuildingResetPrice;    //其它附属建筑物重置总价
+    private String houseTodayValue;      //房屋现值
+    private String subbuildingTodayValue;    //其它附属建筑物现值
+    private String yearRobust;             //耐用年限
+    private String yearUsed;               //已用年限
 
     //买卖情况
     private String tradeOut;            //转让人
@@ -35,12 +35,12 @@ public class HouseTradeModel {
     private String tradeMethod;         //买卖方式
     private String useageBeforeTrade;    //买卖前用途
     private String useageAfterTrade;    //买卖后用途
-    private float tradeBuildingArea;    //出卖建筑面积
-    private float buildingTradeSharedLandArea;  //出卖建筑分摊土地面积
-    private float houseTradeTotalPrice;      //房屋交易总价
-    private float houseTradeTax;             //房屋交易税费
-    private float landTradeTotalPirce;         //土地交易总价
-    private float landPricePerSquare;           //单位面积地价
+    private String tradeBuildingArea;    //出卖建筑面积
+    private String buildingTradeSharedLandArea;  //出卖建筑分摊土地面积
+    private String houseTradeTotalPrice;      //房屋交易总价
+    private String houseTradeTax;             //房屋交易税费
+    private String landTradeTotalPirce;         //土地交易总价
+    private String landPricePerSquare;           //单位面积地价
 
     public Long getId() {
         return id;
@@ -74,11 +74,11 @@ public class HouseTradeModel {
         this.nearByLandType = nearByLandType;
     }
 
-    public int getFloorNum() {
+    public String getFloorNum() {
         return floorNum;
     }
 
-    public void setFloorNum(int floorNum) {
+    public void setFloorNum(String floorNum) {
         this.floorNum = floorNum;
     }
 
@@ -106,67 +106,67 @@ public class HouseTradeModel {
         this.lightAirType = lightAirType;
     }
 
-    public float getHouseStandardPrice() {
+    public String getHouseStandardPrice() {
         return houseStandardPrice;
     }
 
-    public void setHouseStandardPrice(float houseStandardPrice) {
+    public void setHouseStandardPrice(String houseStandardPrice) {
         this.houseStandardPrice = houseStandardPrice;
     }
 
-    public float getTotalArea() {
+    public String getTotalArea() {
         return totalArea;
     }
 
-    public void setTotalArea(float totalArea) {
+    public void setTotalArea(String totalArea) {
         this.totalArea = totalArea;
     }
 
-    public float getHouseResetTotalPrice() {
+    public String getHouseResetTotalPrice() {
         return houseResetTotalPrice;
     }
 
-    public void setHouseResetTotalPrice(float houseResetTotalPrice) {
+    public void setHouseResetTotalPrice(String houseResetTotalPrice) {
         this.houseResetTotalPrice = houseResetTotalPrice;
     }
 
-    public float getSubbuildingResetPrice() {
+    public String getSubbuildingResetPrice() {
         return subbuildingResetPrice;
     }
 
-    public void setSubbuildingResetPrice(float subbuildingResetPrice) {
+    public void setSubbuildingResetPrice(String subbuildingResetPrice) {
         this.subbuildingResetPrice = subbuildingResetPrice;
     }
 
-    public float getHouseTodayValue() {
+    public String getHouseTodayValue() {
         return houseTodayValue;
     }
 
-    public void setHouseTodayValue(float houseTodayValue) {
+    public void setHouseTodayValue(String houseTodayValue) {
         this.houseTodayValue = houseTodayValue;
     }
 
-    public float getSubbuildingTodayValue() {
+    public String getSubbuildingTodayValue() {
         return subbuildingTodayValue;
     }
 
-    public void setSubbuildingTodayValue(float subbuildingTodayValue) {
+    public void setSubbuildingTodayValue(String subbuildingTodayValue) {
         this.subbuildingTodayValue = subbuildingTodayValue;
     }
 
-    public int getYearRobust() {
+    public String getYearRobust() {
         return yearRobust;
     }
 
-    public void setYearRobust(int yearRobust) {
+    public void setYearRobust(String yearRobust) {
         this.yearRobust = yearRobust;
     }
 
-    public int getYearUsed() {
+    public String getYearUsed() {
         return yearUsed;
     }
 
-    public void setYearUsed(int yearUsed) {
+    public void setYearUsed(String yearUsed) {
         this.yearUsed = yearUsed;
     }
 
@@ -218,51 +218,51 @@ public class HouseTradeModel {
         this.useageAfterTrade = useageAfterTrade;
     }
 
-    public float getTradeBuildingArea() {
+    public String getTradeBuildingArea() {
         return tradeBuildingArea;
     }
 
-    public void setTradeBuildingArea(float tradeBuildingArea) {
+    public void setTradeBuildingArea(String tradeBuildingArea) {
         this.tradeBuildingArea = tradeBuildingArea;
     }
 
-    public float getBuildingTradeSharedLandArea() {
+    public String getBuildingTradeSharedLandArea() {
         return buildingTradeSharedLandArea;
     }
 
-    public void setBuildingTradeSharedLandArea(float buildingTradeSharedLandArea) {
+    public void setBuildingTradeSharedLandArea(String buildingTradeSharedLandArea) {
         this.buildingTradeSharedLandArea = buildingTradeSharedLandArea;
     }
 
-    public float getHouseTradeTotalPrice() {
+    public String getHouseTradeTotalPrice() {
         return houseTradeTotalPrice;
     }
 
-    public void setHouseTradeTotalPrice(float houseTradeTotalPrice) {
+    public void setHouseTradeTotalPrice(String houseTradeTotalPrice) {
         this.houseTradeTotalPrice = houseTradeTotalPrice;
     }
 
-    public float getHouseTradeTax() {
+    public String getHouseTradeTax() {
         return houseTradeTax;
     }
 
-    public void setHouseTradeTax(float houseTradeTax) {
+    public void setHouseTradeTax(String houseTradeTax) {
         this.houseTradeTax = houseTradeTax;
     }
 
-    public float getLandTradeTotalPirce() {
+    public String getLandTradeTotalPirce() {
         return landTradeTotalPirce;
     }
 
-    public void setLandTradeTotalPirce(float landTradeTotalPirce) {
+    public void setLandTradeTotalPirce(String landTradeTotalPirce) {
         this.landTradeTotalPirce = landTradeTotalPirce;
     }
 
-    public float getLandPricePerSquare() {
+    public String getLandPricePerSquare() {
         return landPricePerSquare;
     }
 
-    public void setLandPricePerSquare(float landPricePerSquare) {
+    public void setLandPricePerSquare(String landPricePerSquare) {
         this.landPricePerSquare = landPricePerSquare;
     }
 }

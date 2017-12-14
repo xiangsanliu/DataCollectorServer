@@ -9,30 +9,22 @@ public class ShopRentModel{
     @Id
     private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
     private int useageActual;   //实际用途
-    private int useagePlande;   //规划用途
+    private int useagePlaned;   //规划用途
 
     private int nearByLandType;     //周围土地类型
 
     //房屋情况
     private int decorationType;         //装修标准
     private int lightAirType;           //采光通风状况
-    private float houseStandardPrice;    //房屋标准造价
-    private float totalArea;            //总占地面积
-    private float houseResetTotalPrice;      //房屋重置总价
-    private float subbuildingResetPrice;    //其它附属建筑物重置总价
-    private float houseTodayValue;      //房屋现值
-    private float subbuildingTodayValue;    //其它附属建筑物现值
-    private int yearRobust;             //耐用年限
-    private int yearUsed;               //已用年限
+    private String houseStandardPrice;    //房屋标准造价
+    private String totalArea;            //总占地面积
+    private String houseResetTotalPrice;      //房屋重置总价
+    private String subbuildingResetPrice;    //其它附属建筑物重置总价
+    private String houseTodayValue;      //房屋现值
+    private String subbuildingTodayValue;    //其它附属建筑物现值
+    private String yearRobust;             //耐用年限
+    private String yearUsed;               //已用年限
 
     //出租情况
     private String rentOut;         //出租人
@@ -41,20 +33,28 @@ public class ShopRentModel{
     private String rentMethod;      //出租方式
     private String useage;          //出租用途
     private String rentDeadline;    //出租期限
-    private float totalTrdeArea;    //总营业面积
-    private float counterTradeArea; //出租柜台营业面积
-    private float totalRentPrice;      //出租房地产总费用
-    private float fixFee;           //其中维修费
-    private float oldFee;               //折旧费
-    private float insuranceFee;         //保险费
-    private float manageFree;           //管理费
-    private float taxFee;               //税费
-    private float otherFee;             //其它费用
-    private float counterSharedLandArea;    //出租柜台分摊土地面积
-    private float counterSharedLandFee;    //出租柜台分摊总费
-    private float counterFeeOfYear;         //出租柜台年租金
-    private float buildinglandPrice;        //楼面地价
-    private float pricePer;                 //单位地价 
+    private String totalTrdeArea;    //总营业面积
+    private String counterTradeArea; //出租柜台营业面积
+    private String totalRentPrice;      //出租房地产总费用
+    private String fixFee;           //其中维修费
+    private String oldFee;               //折旧费
+    private String insuranceFee;         //保险费
+    private String manageFree;           //管理费
+    private String taxFee;               //税费
+    private String otherFee;             //其它费用
+    private String counterSharedLandArea;    //出租柜台分摊土地面积
+    private String counterSharedLandFee;    //出租柜台分摊总费
+    private String counterFeeOfYear;         //出租柜台年租金
+    private String buildinglandPrice;        //楼面地价
+    private String pricePer;                 //单位地价
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public int getUseageActual() {
         return useageActual;
@@ -64,12 +64,12 @@ public class ShopRentModel{
         this.useageActual = useageActual;
     }
 
-    public int getUseagePlande() {
-        return useagePlande;
+    public int getUseagePlaned() {
+        return useagePlaned;
     }
 
-    public void setUseagePlande(int useagePlande) {
-        this.useagePlande = useagePlande;
+    public void setUseagePlaned(int useagePlaned) {
+        this.useagePlaned = useagePlaned;
     }
 
     public int getNearByLandType() {
@@ -96,67 +96,67 @@ public class ShopRentModel{
         this.lightAirType = lightAirType;
     }
 
-    public float getHouseStandardPrice() {
+    public String getHouseStandardPrice() {
         return houseStandardPrice;
     }
 
-    public void setHouseStandardPrice(float houseStandardPrice) {
+    public void setHouseStandardPrice(String houseStandardPrice) {
         this.houseStandardPrice = houseStandardPrice;
     }
 
-    public float getTotalArea() {
+    public String getTotalArea() {
         return totalArea;
     }
 
-    public void setTotalArea(float totalArea) {
+    public void setTotalArea(String totalArea) {
         this.totalArea = totalArea;
     }
 
-    public float getHouseResetTotalPrice() {
+    public String getHouseResetTotalPrice() {
         return houseResetTotalPrice;
     }
 
-    public void setHouseResetTotalPrice(float houseResetTotalPrice) {
+    public void setHouseResetTotalPrice(String houseResetTotalPrice) {
         this.houseResetTotalPrice = houseResetTotalPrice;
     }
 
-    public float getSubbuildingResetPrice() {
+    public String getSubbuildingResetPrice() {
         return subbuildingResetPrice;
     }
 
-    public void setSubbuildingResetPrice(float subbuildingResetPrice) {
+    public void setSubbuildingResetPrice(String subbuildingResetPrice) {
         this.subbuildingResetPrice = subbuildingResetPrice;
     }
 
-    public float getHouseTodayValue() {
+    public String getHouseTodayValue() {
         return houseTodayValue;
     }
 
-    public void setHouseTodayValue(float houseTodayValue) {
+    public void setHouseTodayValue(String houseTodayValue) {
         this.houseTodayValue = houseTodayValue;
     }
 
-    public float getSubbuildingTodayValue() {
+    public String getSubbuildingTodayValue() {
         return subbuildingTodayValue;
     }
 
-    public void setSubbuildingTodayValue(float subbuildingTodayValue) {
+    public void setSubbuildingTodayValue(String subbuildingTodayValue) {
         this.subbuildingTodayValue = subbuildingTodayValue;
     }
 
-    public int getYearRobust() {
+    public String getYearRobust() {
         return yearRobust;
     }
 
-    public void setYearRobust(int yearRobust) {
+    public void setYearRobust(String yearRobust) {
         this.yearRobust = yearRobust;
     }
 
-    public int getYearUsed() {
+    public String getYearUsed() {
         return yearUsed;
     }
 
-    public void setYearUsed(int yearUsed) {
+    public void setYearUsed(String yearUsed) {
         this.yearUsed = yearUsed;
     }
 
@@ -208,115 +208,115 @@ public class ShopRentModel{
         this.rentDeadline = rentDeadline;
     }
 
-    public float getTotalTrdeArea() {
+    public String getTotalTrdeArea() {
         return totalTrdeArea;
     }
 
-    public void setTotalTrdeArea(float totalTrdeArea) {
+    public void setTotalTrdeArea(String totalTrdeArea) {
         this.totalTrdeArea = totalTrdeArea;
     }
 
-    public float getCounterTradeArea() {
+    public String getCounterTradeArea() {
         return counterTradeArea;
     }
 
-    public void setCounterTradeArea(float counterTradeArea) {
+    public void setCounterTradeArea(String counterTradeArea) {
         this.counterTradeArea = counterTradeArea;
     }
 
-    public float getTotalRentPrice() {
+    public String getTotalRentPrice() {
         return totalRentPrice;
     }
 
-    public void setTotalRentPrice(float totalRentPrice) {
+    public void setTotalRentPrice(String totalRentPrice) {
         this.totalRentPrice = totalRentPrice;
     }
 
-    public float getFixFee() {
+    public String getFixFee() {
         return fixFee;
     }
 
-    public void setFixFee(float fixFee) {
+    public void setFixFee(String fixFee) {
         this.fixFee = fixFee;
     }
 
-    public float getOldFee() {
+    public String getOldFee() {
         return oldFee;
     }
 
-    public void setOldFee(float oldFee) {
+    public void setOldFee(String oldFee) {
         this.oldFee = oldFee;
     }
 
-    public float getInsuranceFee() {
+    public String getInsuranceFee() {
         return insuranceFee;
     }
 
-    public void setInsuranceFee(float insuranceFee) {
+    public void setInsuranceFee(String insuranceFee) {
         this.insuranceFee = insuranceFee;
     }
 
-    public float getManageFree() {
+    public String getManageFree() {
         return manageFree;
     }
 
-    public void setManageFree(float manageFree) {
+    public void setManageFree(String manageFree) {
         this.manageFree = manageFree;
     }
 
-    public float getTaxFee() {
+    public String getTaxFee() {
         return taxFee;
     }
 
-    public void setTaxFee(float taxFee) {
+    public void setTaxFee(String taxFee) {
         this.taxFee = taxFee;
     }
 
-    public float getOtherFee() {
+    public String getOtherFee() {
         return otherFee;
     }
 
-    public void setOtherFee(float otherFee) {
+    public void setOtherFee(String otherFee) {
         this.otherFee = otherFee;
     }
 
-    public float getCounterSharedLandArea() {
+    public String getCounterSharedLandArea() {
         return counterSharedLandArea;
     }
 
-    public void setCounterSharedLandArea(float counterSharedLandArea) {
+    public void setCounterSharedLandArea(String counterSharedLandArea) {
         this.counterSharedLandArea = counterSharedLandArea;
     }
 
-    public float getCounterSharedLandFee() {
+    public String getCounterSharedLandFee() {
         return counterSharedLandFee;
     }
 
-    public void setCounterSharedLandFee(float counterSharedLandFee) {
+    public void setCounterSharedLandFee(String counterSharedLandFee) {
         this.counterSharedLandFee = counterSharedLandFee;
     }
 
-    public float getCounterFeeOfYear() {
+    public String getCounterFeeOfYear() {
         return counterFeeOfYear;
     }
 
-    public void setCounterFeeOfYear(float counterFeeOfYear) {
+    public void setCounterFeeOfYear(String counterFeeOfYear) {
         this.counterFeeOfYear = counterFeeOfYear;
     }
 
-    public float getBuildinglandPrice() {
+    public String getBuildinglandPrice() {
         return buildinglandPrice;
     }
 
-    public void setBuildinglandPrice(float buildinglandPrice) {
+    public void setBuildinglandPrice(String buildinglandPrice) {
         this.buildinglandPrice = buildinglandPrice;
     }
 
-    public float getPricePer() {
+    public String getPricePer() {
         return pricePer;
     }
 
-    public void setPricePer(float pricePer) {
+    public void setPricePer(String pricePer) {
         this.pricePer = pricePer;
     }
 }

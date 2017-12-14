@@ -1,46 +1,47 @@
 package com.wangxiang.datacollectorserver.domain.entity;
 
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class HouseRentModel {
+public class HouseRentModel{
 
     @Id
-    private Long id;
+    Long id;
 
     private int nearByLandType;     //周围土地类型
 
     //房屋情况
-    private int floorNum;               //楼层数
+    private String floorNum;               //楼层数
     private String rentLevel;          //买卖层次
     private int lightAirType;           //采光通风状况
-    private float houseStandardPrice;    //房屋标准造价
-    private float totalArea;            //总占地面积
-    private float houseResetToalPrice;      //房屋重置总价
-    private float houseResetPerPrice;      //房屋重置单价
-    private float houseTodayValue;      //房屋现值
-    private float subbuildingTodayValue;    //其它附属建筑物现值
-    private int yearRobust;             //耐用年限
-    private int yearUsed;               //已用年限
+    private String houseStandardPrice;    //房屋标准造价
+    private String totalArea;            //总占地面积
+    private String houseResetToalPrice;      //房屋重置总价
+    private String houseResetPerPrice;      //房屋重置单价
+    private String houseTodayValue;      //房屋现值
+    private String subbuildingTodayValue;    //其它附属建筑物现值
+    private String yearRobust;             //耐用年限
+    private String yearUsed;               //已用年限
 
     //出租情况
     private String rentOut;         //出租人
     private String rentIn;          //承租人
     private String rentTime;        //出租时间
     private String rentMethod;      //出租方式
-    private String houseNomalProfit;    //房屋正常收益
-    private String houseNomalTotalFee;  //房屋正常总费用
-    private float priceOfYear;      //其中年租金
-    private float fixFee;       //其中维修费
-    private float interestOfDeposit;        //押金利息
-    private float oldFee;               //折旧费
-    private float insuranceFee;         //保险费
-    private float otherProfit;          //其它收益
-    private float manageFree;           //管理费
-    private float taxFee;               //税费
-    private float housePureProfit;      //房地纯收益
-    private float landNormalPrice;      //土地正常价格
+    private String houseNormalProfit;    //房屋正常收益
+    private String houseNormalTotalFee;  //房屋正常总费用
+    private String priceOfYear;      //其中年租金
+    private String fixFee;       //其中维修费
+    private String interestOfDeposit;        //押金利息
+    private String oldFee;               //折旧费
+    private String insuranceFee;         //保险费
+    private String otherProfit;          //其它收益
+    private String manageFree;           //管理费
+    private String taxFee;               //税费
+    private String housePureProfit;      //房地纯收益
+    private String landNormalPrice;      //土地正常价格
 
     public Long getId() {
         return id;
@@ -58,11 +59,11 @@ public class HouseRentModel {
         this.nearByLandType = nearByLandType;
     }
 
-    public int getFloorNum() {
+    public String getFloorNum() {
         return floorNum;
     }
 
-    public void setFloorNum(int floorNum) {
+    public void setFloorNum(String floorNum) {
         this.floorNum = floorNum;
     }
 
@@ -82,67 +83,67 @@ public class HouseRentModel {
         this.lightAirType = lightAirType;
     }
 
-    public float getHouseStandardPrice() {
+    public String getHouseStandardPrice() {
         return houseStandardPrice;
     }
 
-    public void setHouseStandardPrice(float houseStandardPrice) {
+    public void setHouseStandardPrice(String houseStandardPrice) {
         this.houseStandardPrice = houseStandardPrice;
     }
 
-    public float getTotalArea() {
+    public String getTotalArea() {
         return totalArea;
     }
 
-    public void setTotalArea(float totalArea) {
+    public void setTotalArea(String totalArea) {
         this.totalArea = totalArea;
     }
 
-    public float getHouseResetToalPrice() {
+    public String getHouseResetToalPrice() {
         return houseResetToalPrice;
     }
 
-    public void setHouseResetToalPrice(float houseResetToalPrice) {
+    public void setHouseResetToalPrice(String houseResetToalPrice) {
         this.houseResetToalPrice = houseResetToalPrice;
     }
 
-    public float getHouseResetPerPrice() {
+    public String getHouseResetPerPrice() {
         return houseResetPerPrice;
     }
 
-    public void setHouseResetPerPrice(float houseResetPerPrice) {
+    public void setHouseResetPerPrice(String houseResetPerPrice) {
         this.houseResetPerPrice = houseResetPerPrice;
     }
 
-    public float getHouseTodayValue() {
+    public String getHouseTodayValue() {
         return houseTodayValue;
     }
 
-    public void setHouseTodayValue(float houseTodayValue) {
+    public void setHouseTodayValue(String houseTodayValue) {
         this.houseTodayValue = houseTodayValue;
     }
 
-    public float getSubbuildingTodayValue() {
+    public String getSubbuildingTodayValue() {
         return subbuildingTodayValue;
     }
 
-    public void setSubbuildingTodayValue(float subbuildingTodayValue) {
+    public void setSubbuildingTodayValue(String subbuildingTodayValue) {
         this.subbuildingTodayValue = subbuildingTodayValue;
     }
 
-    public int getYearRobust() {
+    public String getYearRobust() {
         return yearRobust;
     }
 
-    public void setYearRobust(int yearRobust) {
+    public void setYearRobust(String yearRobust) {
         this.yearRobust = yearRobust;
     }
 
-    public int getYearUsed() {
+    public String getYearUsed() {
         return yearUsed;
     }
 
-    public void setYearUsed(int yearUsed) {
+    public void setYearUsed(String yearUsed) {
         this.yearUsed = yearUsed;
     }
 
@@ -178,99 +179,99 @@ public class HouseRentModel {
         this.rentMethod = rentMethod;
     }
 
-    public String getHouseNomalProfit() {
-        return houseNomalProfit;
+    public String getHouseNormalProfit() {
+        return houseNormalProfit;
     }
 
-    public void setHouseNomalProfit(String houseNomalProfit) {
-        this.houseNomalProfit = houseNomalProfit;
+    public void setHouseNormalProfit(String houseNormalProfit) {
+        this.houseNormalProfit = houseNormalProfit;
     }
 
-    public String getHouseNomalTotalFee() {
-        return houseNomalTotalFee;
+    public String getHouseNormalTotalFee() {
+        return houseNormalTotalFee;
     }
 
-    public void setHouseNomalTotalFee(String houseNomalTotalFee) {
-        this.houseNomalTotalFee = houseNomalTotalFee;
+    public void setHouseNormalTotalFee(String houseNormalTotalFee) {
+        this.houseNormalTotalFee = houseNormalTotalFee;
     }
 
-    public float getPriceOfYear() {
+    public String getPriceOfYear() {
         return priceOfYear;
     }
 
-    public void setPriceOfYear(float priceOfYear) {
+    public void setPriceOfYear(String priceOfYear) {
         this.priceOfYear = priceOfYear;
     }
 
-    public float getFixFee() {
+    public String getFixFee() {
         return fixFee;
     }
 
-    public void setFixFee(float fixFee) {
+    public void setFixFee(String fixFee) {
         this.fixFee = fixFee;
     }
 
-    public float getInterestOfDeposit() {
+    public String getInterestOfDeposit() {
         return interestOfDeposit;
     }
 
-    public void setInterestOfDeposit(float interestOfDeposit) {
+    public void setInterestOfDeposit(String interestOfDeposit) {
         this.interestOfDeposit = interestOfDeposit;
     }
 
-    public float getOldFee() {
+    public String getOldFee() {
         return oldFee;
     }
 
-    public void setOldFee(float oldFee) {
+    public void setOldFee(String oldFee) {
         this.oldFee = oldFee;
     }
 
-    public float getInsuranceFee() {
+    public String getInsuranceFee() {
         return insuranceFee;
     }
 
-    public void setInsuranceFee(float insuranceFee) {
+    public void setInsuranceFee(String insuranceFee) {
         this.insuranceFee = insuranceFee;
     }
 
-    public float getOtherProfit() {
+    public String getOtherProfit() {
         return otherProfit;
     }
 
-    public void setOtherProfit(float otherProfit) {
+    public void setOtherProfit(String otherProfit) {
         this.otherProfit = otherProfit;
     }
 
-    public float getManageFree() {
+    public String getManageFree() {
         return manageFree;
     }
 
-    public void setManageFree(float manageFree) {
+    public void setManageFree(String manageFree) {
         this.manageFree = manageFree;
     }
 
-    public float getTaxFee() {
+    public String getTaxFee() {
         return taxFee;
     }
 
-    public void setTaxFee(float taxFee) {
+    public void setTaxFee(String taxFee) {
         this.taxFee = taxFee;
     }
 
-    public float getHousePureProfit() {
+    public String getHousePureProfit() {
         return housePureProfit;
     }
 
-    public void setHousePureProfit(float housePureProfit) {
+    public void setHousePureProfit(String housePureProfit) {
         this.housePureProfit = housePureProfit;
     }
 
-    public float getLandNormalPrice() {
+    public String getLandNormalPrice() {
         return landNormalPrice;
     }
 
-    public void setLandNormalPrice(float landNormalPrice) {
+    public void setLandNormalPrice(String landNormalPrice) {
         this.landNormalPrice = landNormalPrice;
     }
 }
