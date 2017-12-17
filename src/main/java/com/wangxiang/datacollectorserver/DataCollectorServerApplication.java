@@ -8,10 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("com.wangxiang.datacollectorserver")
 public class DataCollectorServerApplication {
 
-
 	public static void main(String[] args) {
 		SpringApplication.run(DataCollectorServerApplication.class, args);
 	}
-
 
 }
