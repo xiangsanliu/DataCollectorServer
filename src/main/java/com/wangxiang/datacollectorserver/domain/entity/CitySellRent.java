@@ -24,7 +24,6 @@ public class CitySellRent {
     private Long id;
 
     //土地基本信息
-
     private String landLoacation;
     //宗地位置
 

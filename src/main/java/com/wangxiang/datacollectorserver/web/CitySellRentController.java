@@ -5,8 +5,8 @@ import com.wangxiang.datacollectorserver.Constants;
 import com.wangxiang.datacollectorserver.domain.dao.*;
 import com.wangxiang.datacollectorserver.domain.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -14,20 +14,15 @@ import java.util.List;
 @RestController
 public class CitySellRentController {
 
-    private final
-    CitySellRentRepository citySellRentRepository;
+    private final CitySellRentRepository citySellRentRepository;
 
-    private final
-    CommercialHouseTradeRepository commercialHouseTradeRepository;
+    private final CommercialHouseTradeRepository commercialHouseTradeRepository;
 
-    private final
-    HouseRentRepository houseRentRepository;
+    private final HouseRentRepository houseRentRepository;
 
-    private final
-    HouseTradeRepository houseTradeRepository;
+    private final HouseTradeRepository houseTradeRepository;
 
-    private final
-    ShopRentRepository shopRentRepository;
+    private final ShopRentRepository shopRentRepository;
 
     @Autowired
     public CitySellRentController(CitySellRentRepository citySellRentRepository, CommercialHouseTradeRepository commercialHouseTradeRepository
@@ -71,7 +66,6 @@ public class CitySellRentController {
     }
 
 
-
     @RequestMapping("/save/city")
     public void saveCitySellRent(String content) {
         CitySellRent citySellRent = JSON.parseObject(content, CitySellRent.class);
@@ -92,7 +86,7 @@ public class CitySellRentController {
 
     @RequestMapping("/save/houserent")
     public void saveHouseRent(String content) {
-        HouseRentModel model  = JSON.parseObject(content, HouseRentModel.class);
+        HouseRentModel model = JSON.parseObject(content, HouseRentModel.class);
         if (houseRentRepository.exists(model.getId()))
             houseRentRepository.delete(model.getId());
         houseRentRepository.save(model);
@@ -117,7 +111,7 @@ public class CitySellRentController {
 
     @RequestMapping("/delete/city")
     public void deleteCitySellRent(Long id) {
-        if (citySellRentRepository.exists(id) ) {
+        if (citySellRentRepository.exists(id)) {
             CitySellRent citySellRent = citySellRentRepository.findCitySellRentById(id);
             switch (citySellRent.getModelType()) {
                 case Constants.COMMERCIAL_HOUSE_TRADE:
