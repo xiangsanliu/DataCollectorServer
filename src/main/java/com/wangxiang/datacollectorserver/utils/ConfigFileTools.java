@@ -27,8 +27,10 @@ public class ConfigFileTools {
 
     static {
         // 初始化信息，项目迁移时候，将下面两行的代码更改掉
-        APK_INFO_FILE_PATH = new File(ConfigFileTools.class.getClassLoader().getResource(APPLICATION_PRO).getPath()).getParent();
-        APK_DIR_PATH = new File(ConfigFileTools.class.getClassLoader().getResource(APPLICATION_PRO).getPath()).getParent();
+//        APK_INFO_FILE_PATH = new File(ConfigFileTools.class.getClassLoader().getResource(APPLICATION_PRO).getPath()).getParent();
+        APK_INFO_FILE_PATH = "/home/ubuntu/data_collector_server_files/apk_info_file.properties";
+//        APK_DIR_PATH = new File(ConfigFileTools.class.getClassLoader().getResource(APPLICATION_PRO).getPath()).getParent();
+        APK_DIR_PATH = "/home/ubuntu/data_collector_server_files/";
 
         // 读取一个文件，这个文件用来存储APK的信息
         APK_PROPERTIES = new Properties();
@@ -52,7 +54,7 @@ public class ConfigFileTools {
     }
 
     public static String getApkName() {
-        return APK_PROPERTIES.getProperty(VERSION_NAME);
+        return APK_PROPERTIES.getProperty(APK_NAME);
     }
 
     public static File getApkFile() {
