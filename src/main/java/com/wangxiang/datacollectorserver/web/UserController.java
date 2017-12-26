@@ -2,7 +2,9 @@ package com.wangxiang.datacollectorserver.web;
 
 
 import com.alibaba.fastjson.JSON;
+import com.wangxiang.datacollectorserver.Constants;
 import com.wangxiang.datacollectorserver.domain.dao.UserRepository;
+import com.wangxiang.datacollectorserver.domain.entity.HttpResult;
 import com.wangxiang.datacollectorserver.domain.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +20,13 @@ public class UserController {
     @Autowired
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
+    }
+
+    @RequestMapping("/login")
+    public HttpResult<Void> login(String imei) {
+        HttpResult<Void> result = new HttpResult<>();
+        result.setResultCode(Constants.USER_LOGIN_SUCCESS);
+        return result;
     }
 
     @PostMapping("/get")
