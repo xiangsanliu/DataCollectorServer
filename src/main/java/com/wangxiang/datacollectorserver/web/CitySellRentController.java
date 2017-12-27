@@ -78,8 +78,9 @@ public class CitySellRentController {
     @RequestMapping("/save/commercial")
     public void saveCommercialHouseTrade(String content) {
         CommercialHouseTradeModel commercialHouseTradeModel = JSON.parseObject(content, CommercialHouseTradeModel.class);
-        if (commercialHouseTradeRepository.exists(commercialHouseTradeModel.getId()))
+        if (commercialHouseTradeRepository.exists(commercialHouseTradeModel.getId())) {
             commercialHouseTradeRepository.delete(commercialHouseTradeModel.getId());
+        }
         commercialHouseTradeRepository.save(commercialHouseTradeModel);
 
     }
@@ -87,24 +88,27 @@ public class CitySellRentController {
     @RequestMapping("/save/houserent")
     public void saveHouseRent(String content) {
         HouseRentModel model = JSON.parseObject(content, HouseRentModel.class);
-        if (houseRentRepository.exists(model.getId()))
+        if (houseRentRepository.exists(model.getId())) {
             houseRentRepository.delete(model.getId());
+        }
         houseRentRepository.save(model);
     }
 
     @RequestMapping("/save/housetrade")
     public void saveHouseTrade(String content) {
         HouseTradeModel model = JSON.parseObject(content, HouseTradeModel.class);
-        if (houseTradeRepository.exists(model.getId()))
+        if (houseTradeRepository.exists(model.getId())) {
             houseTradeRepository.delete(model.getId());
+        }
         houseTradeRepository.save(model);
     }
 
     @RequestMapping("/save/shoprent")
     public void saveShopRent(String content) {
         ShopRentModel model = JSON.parseObject(content, ShopRentModel.class);
-        if (shopRentRepository.exists(model.getId()))
+        if (shopRentRepository.exists(model.getId())) {
             shopRentRepository.delete(model.getId());
+        }
         shopRentRepository.save(model);
     }
 
