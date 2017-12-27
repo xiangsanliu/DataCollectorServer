@@ -34,6 +34,10 @@ public class ConfigFileTools {
 
         // 读取一个文件，这个文件用来存储APK的信息
         APK_PROPERTIES = new Properties();
+        loadApkInfo();
+    }
+
+    private static void loadApkInfo() {
         try {
             FileInputStream apkInfoFileStream = new FileInputStream(APK_INFO_FILE_PATH);
             APK_PROPERTIES.load(apkInfoFileStream);
@@ -46,14 +50,17 @@ public class ConfigFileTools {
     }
 
     public static String getApkVersionName() {
+        loadApkInfo();
         return APK_PROPERTIES.getProperty(VERSION_NAME);
     }
 
     public static String getApkVersionCode() {
+        loadApkInfo();
         return APK_PROPERTIES.getProperty(VERSION_CODE);
     }
 
     public static String getApkName() {
+        loadApkInfo();
         return APK_PROPERTIES.getProperty(APK_NAME);
     }
 
