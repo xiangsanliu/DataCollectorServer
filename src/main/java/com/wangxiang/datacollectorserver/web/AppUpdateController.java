@@ -1,10 +1,12 @@
 package com.wangxiang.datacollectorserver.web;
 
 import com.wangxiang.datacollectorserver.utils.ConfigFileTools;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 
@@ -13,8 +15,8 @@ import java.io.*;
  */
 
 
-@RequestMapping("/update")
 @RestController
+@RequestMapping("/update")
 public class AppUpdateController {
 
     @RequestMapping("/version_code")
@@ -28,33 +30,24 @@ public class AppUpdateController {
     }
 
     @RequestMapping(value = "/download_apk", method = RequestMethod.GET)
-    public void downloadApk(HttpServletResponse resp) throws IOException {
+    public void downloadApk(HttpServletRequest request,
+                            HttpServletResponse response) throws IOException {
         File file = ConfigFileTools.getApkFile();
-        resp.setHeader("content-type", "application/octet-stream");
-        resp.setContentType("application/octet-stream");
-        resp.setHeader("Content-Disposition", "attachment;filename=" + "app-release");
-        byte[] buff = new byte[1024];
-        BufferedInputStream bis = null;
-        OutputStream os = null;
+        String mimeType = request.getServletContext().getMimeType(file.getAbsolutePath());
+        int fileLength = (int) file.length();
+        if (mimeType == null) {
+            mimeType = "application/octet-stream";
+        }
+        response.setContentType(mimeType);
+        response.setContentLength(fileLength);
+        response.setHeader("Content-Disposition", String.format("attachment; filename=\"%s\"", file.getName()));
+
         try {
-            os = resp.getOutputStream();
-            bis = new BufferedInputStream(new FileInputStream(file));
-            int i = bis.read(buff);
-            while (i != -1) {
-                os.write(buff, 0, buff.length);
-                os.flush();
-                i = bis.read(buff);
-            }
+            InputStream myStream = new FileInputStream(file.getAbsolutePath());
+            IOUtils.copy(myStream, response.getOutputStream());
+            response.flushBuffer();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            if (bis != null) {
-                try {
-                    bis.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }
