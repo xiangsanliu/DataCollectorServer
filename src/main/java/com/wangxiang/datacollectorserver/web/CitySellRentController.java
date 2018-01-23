@@ -1,7 +1,7 @@
 package com.wangxiang.datacollectorserver.web;
 
 import com.alibaba.fastjson.JSON;
-import com.wangxiang.datacollectorserver.Constants;
+import com.wangxiang.datacollectorserver.share.Constants;
 import com.wangxiang.datacollectorserver.domain.dao.*;
 import com.wangxiang.datacollectorserver.domain.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;

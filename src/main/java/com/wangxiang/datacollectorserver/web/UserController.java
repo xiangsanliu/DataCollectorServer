@@ -2,7 +2,7 @@ package com.wangxiang.datacollectorserver.web;
 
 
 import com.alibaba.fastjson.JSON;
-import com.wangxiang.datacollectorserver.Constants;
+import com.wangxiang.datacollectorserver.share.Constants;
 import com.wangxiang.datacollectorserver.domain.dao.IMEIRepository;
 import com.wangxiang.datacollectorserver.domain.dao.UserRepository;
 import com.wangxiang.datacollectorserver.domain.entity.HttpResult;

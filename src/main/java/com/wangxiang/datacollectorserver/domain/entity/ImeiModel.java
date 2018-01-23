@@ -18,4 +18,8 @@ public class ImeiModel {
     @Id
     @Column(name = "imei", nullable = false, length = 15)
     private String imei;
+
+    public ImeiModel(String imei) {
+        this.imei = imei;
+    }
 }

@@ -1,4 +1,4 @@
-package com.wangxiang.datacollectorserver;
+package com.wangxiang.datacollectorserver.share;
 
 public class Constants {
 
