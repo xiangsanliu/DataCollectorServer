@@ -17,6 +17,6 @@ public interface ActiveCodeRepository extends JpaRepository<ActiveCode, Long> {
     ActiveCode findActiveCodeByActiveCode(Long activeCode);
 
     @Modifying
-    @Query("update ActiveCode set leftTime = :leftTime")
-    void updateLeftTime(int leftTime);
+    @Query("update ActiveCode set leftTime = :leftTime where activeCode = :activeCode")
+    void updateLeftTime(int leftTime, Long activeCode);
 }

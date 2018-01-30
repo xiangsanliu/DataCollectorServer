@@ -6,8 +6,10 @@
 </head>
 <body>
 <div id="main">
-    <form class="form-apply" action="/apply/imei">
-
+    <form class="form-apply" method="post" action="/user/save/imei">
+        <input id="inputActiveCode" name="inputActiveCode" type="text" title="activeCode" placeholder="激活码"/><br/>
+        <input id="imei" name="imei" type="text" title="imei" placeholder="IMIE码"/><br/>
+        <input type="submit" formmethod="post"/>
     </form>
 </div>
 </body>

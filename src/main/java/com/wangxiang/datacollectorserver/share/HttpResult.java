@@ -1,4 +1,4 @@
-package com.wangxiang.datacollectorserver.domain.entity;
+package com.wangxiang.datacollectorserver.share;
 
 
 public class HttpResult<T> {

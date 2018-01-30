@@ -1,13 +1,13 @@
 package com.wangxiang.datacollectorserver.web;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author xiang
  */
-@RestController
+@Controller
 public class WebController {
 
     @RequestMapping(value = "/apply", method = RequestMethod.GET)
