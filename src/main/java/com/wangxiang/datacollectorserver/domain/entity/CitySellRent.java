@@ -2,7 +2,7 @@ package com.wangxiang.datacollectorserver.domain.entity;
 
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -15,9 +15,14 @@ import javax.persistence.Id;
 
 @Getter
 @Setter
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 public class CitySellRent {
+
+    public CitySellRent(Long userId, int modelType) {
+        this.userId = userId;
+        this.modelType = modelType;
+    }
 
     // 主键 id
     @Id
