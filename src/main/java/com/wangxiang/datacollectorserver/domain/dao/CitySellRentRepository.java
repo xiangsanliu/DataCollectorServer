@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * @author xiang
+ * {@link CitySellRent}
  */
 public interface CitySellRentRepository extends JpaRepository<CitySellRent, Long> {
     /**
@@ -23,5 +24,13 @@ public interface CitySellRentRepository extends JpaRepository<CitySellRent, Long
      * @return CitySellRents
      */
     List<CitySellRent> findCitySellRentsByUserIdAndModelType(Long userId, int modelType);
+
+    /**
+     * 查询出对应时间段的Model
+     * @param low 开始时间
+     * @param high 结束时间
+     * @return Models
+     */
+    List<CitySellRent> findCitySellRentsByIdBetween(Long low, Long high);
 
 }
