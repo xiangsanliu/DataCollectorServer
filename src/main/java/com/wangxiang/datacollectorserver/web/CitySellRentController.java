@@ -192,27 +192,75 @@ public class CitySellRentController {
     public HttpResult<Void> uploadCounterRent(@RequestParam("IMEI") String IMEI,
                                               @RequestPart("commonAttrs") String commonJson,
                                               @RequestPart("modelAttrs") String modelJson) {
-        return null;
+        Long id = System.currentTimeMillis();
+        CitySellRent citySellRent = JSON.parseObject(commonJson, CitySellRent.class);
+        ShopRentModel model = JSON.parseObject(modelJson, ShopRentModel.class);
+        // ** begin to store models
+        citySellRent.setId(id);
+        citySellRent.setModelType(Constants.SHOP_RENT);
+        model.setId(id);
+        citySellRentRepository.save(citySellRent);
+        shopRentRepository.save(model);
+        // return result
+        HttpResult<Void> result = new HttpResult<>();
+        result.setResultCode(Constants.UPLOAD_MODEL_SUCCESS);
+        return result;
     }
 
     @RequestMapping("/save/house_rent")
     public HttpResult<Void> uploadHouseRent(@RequestParam("IMEI") String IMEI,
                                             @RequestPart("commonAttrs") String commonJson,
                                             @RequestPart("modelAttrs") String modelJson) {
-        return null;
+        Long id = System.currentTimeMillis();
+        CitySellRent citySellRent = JSON.parseObject(commonJson, CitySellRent.class);
+        HouseRentModel model = JSON.parseObject(modelJson, HouseRentModel.class);
+        // ** begin to store models
+        citySellRent.setId(id);
+        citySellRent.setModelType(Constants.HOUSE_RENT);
+        model.setId(id);
+        citySellRentRepository.save(citySellRent);
+        houseRentRepository.save(model);
+        // return result
+        HttpResult<Void> result = new HttpResult<>();
+        result.setResultCode(Constants.UPLOAD_MODEL_SUCCESS);
+        return result;
     }
 
     @RequestMapping("/save/commercial_housing_for_sale")
     public HttpResult<Void> uploadCommercialHousingForSale(@RequestParam("IMEI") String IMEI,
                                                            @RequestPart("commonAttrs") String commonJson,
                                                            @RequestPart("modelAttrs") String modelJson) {
-        return null;
+        Long id = System.currentTimeMillis();
+        CitySellRent citySellRent = JSON.parseObject(commonJson, CitySellRent.class);
+        CommercialHouseTradeModel model = JSON.parseObject(modelJson, CommercialHouseTradeModel.class);
+        // ** begin to store models
+        citySellRent.setId(id);
+        citySellRent.setModelType(Constants.COMMERCIAL_HOUSE_TRADE);
+        model.setId(id);
+        citySellRentRepository.save(citySellRent);
+        commercialHouseTradeRepository.save(model);
+        // return result
+        HttpResult<Void> result = new HttpResult<>();
+        result.setResultCode(Constants.UPLOAD_MODEL_SUCCESS);
+        return result;
     }
 
     @RequestMapping("/save/house_sale_price")
     public HttpResult<Void> uploadHouseSalePrice(@RequestParam("IMEI") String IMEI,
                                                  @RequestPart("commonAttrs") String commonJson,
                                                  @RequestPart("modelAttrs") String modelJson) {
-        return null;
+        Long id = System.currentTimeMillis();
+        CitySellRent citySellRent = JSON.parseObject(commonJson, CitySellRent.class);
+        HouseTradeModel model = JSON.parseObject(modelJson, HouseTradeModel.class);
+        // ** begin to store models
+        citySellRent.setId(id);
+        citySellRent.setModelType(Constants.HOUSE_SELL);
+        model.setId(id);
+        citySellRentRepository.save(citySellRent);
+        houseTradeRepository.save(model);
+        // return result
+        HttpResult<Void> result = new HttpResult<>();
+        result.setResultCode(Constants.UPLOAD_MODEL_SUCCESS);
+        return result;
     }
 }
