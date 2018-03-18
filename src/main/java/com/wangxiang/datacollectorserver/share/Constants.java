@@ -29,4 +29,5 @@ public class Constants {
     public static final String[] LIGHT_AIR_TYPE = {" ","好", "较好", "一般", "较差", "差"};
     public static final String[] TRADE_TYPE = {" ","一次性付还", "按揭"};
 
+    public static final String XLS_SUFFIX = ".xls";
 }

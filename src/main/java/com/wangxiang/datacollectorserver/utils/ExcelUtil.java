@@ -51,7 +51,7 @@ public class ExcelUtil {
     /**
      * @param startTime
      * @param endTime
-     * @return 文件的路徑
+     * @return 文件的名称
      */
     public String exportCommercial(Date startTime, Date endTime) {
         ArrayList<ArrayList<Object>> data = new ArrayList<>();
@@ -617,7 +617,7 @@ public class ExcelUtil {
      * 创建excel表格
      *
      * @param data 导入表格的数据
-     * @return 返回文件的地址
+     * @return 返回文件的名字
      */
     private String writeExcel(ArrayList<ArrayList<Object>> data) {
         if (data == null) {
@@ -643,13 +643,13 @@ public class ExcelUtil {
         try {
             wb.write(os);
             byte[] content = os.toByteArray();
-            String fileName = String.valueOf(System.currentTimeMillis()) + ".xls";
-            File file = new File(fileFolder, fileName);
+            String fileName = String.valueOf(System.currentTimeMillis());
+            File file = new File(fileFolder, fileName + Constants.XLS_SUFFIX);
             OutputStream fos = new FileOutputStream(file);
             fos.write(content);
             os.close();
             fos.close();
-            return file.getAbsolutePath();
+            return fileName;
         } catch (IOException e) {
             e.printStackTrace();
             return null;
