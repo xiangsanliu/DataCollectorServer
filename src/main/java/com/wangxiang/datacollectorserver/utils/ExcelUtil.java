@@ -48,7 +48,12 @@ public class ExcelUtil {
     /**
      * 导出商品房买卖
      */
-    public void exportCommercial(Date startTime, Date endTime) {
+    /**
+     * @param startTime
+     * @param endTime
+     * @return 文件的路徑
+     */
+    public String exportCommercial(Date startTime, Date endTime) {
         ArrayList<ArrayList<Object>> data = new ArrayList<>();
         data.add(getHeadLineForCommercial());
         List<CitySellRent> citySellRents = citySellRentRepository
@@ -70,7 +75,7 @@ public class ExcelUtil {
             singleDate.add(citySellRent.getWidthToStreet());
             singleDate.add(citySellRent.getDepthToStreet());
             singleDate.add(citySellRent.getBuildingPlotRate());
-            singleDate.add(citySellRent.isGore() ? "是": "否");
+            singleDate.add(citySellRent.isGore() ? "是" : "否");
             singleDate.add(Constants.USAGE[model.getUseagePlande()]);
             singleDate.add(Constants.USAGE[model.getUseageActual()]);
             singleDate.add(citySellRent.getAuthorizedTime());
@@ -114,13 +119,13 @@ public class ExcelUtil {
             singleDate.add(citySellRent.getLatitude());
             data.add(singleDate);
         }
-        writeExcel(data);
+        return writeExcel(data);
     }
 
     /**
      * 导出房屋出租
      */
-    public void exportHouseRent(Date startTime, Date endTime) {
+    public String exportHouseRent(Date startTime, Date endTime) {
         ArrayList<ArrayList<Object>> data = new ArrayList<>();
         data.add(getHeadLineForHouseRent());
         List<CitySellRent> citySellRents = citySellRentRepository
@@ -142,7 +147,7 @@ public class ExcelUtil {
             singleDate.add(citySellRent.getWidthToStreet());
             singleDate.add(citySellRent.getDepthToStreet());
             singleDate.add(citySellRent.getBuildingPlotRate());
-            singleDate.add(citySellRent.isGore() ? "是": "否");
+            singleDate.add(citySellRent.isGore() ? "是" : "否");
             singleDate.add(Constants.NEARBY_LAND_TYPE[model.getNearByLandType()]);
             singleDate.add(citySellRent.getAuthorizedTime());
             singleDate.add(citySellRent.getLandServiceableLife());
@@ -185,13 +190,13 @@ public class ExcelUtil {
             singleDate.add(citySellRent.getLatitude());
             data.add(singleDate);
         }
-        writeExcel(data);
+        return writeExcel(data);
     }
 
     /**
      * 导出房屋买卖
      */
-    public void exportHouseTrade(Date startTime, Date endTime) {
+    public String exportHouseTrade(Date startTime, Date endTime) {
         ArrayList<ArrayList<Object>> data = new ArrayList<>();
         data.add(getHeadLineForHouseTrade());
         List<CitySellRent> citySellRents = citySellRentRepository
@@ -213,7 +218,7 @@ public class ExcelUtil {
             singleDate.add(citySellRent.getWidthToStreet());
             singleDate.add(citySellRent.getDepthToStreet());
             singleDate.add(citySellRent.getBuildingPlotRate());
-            singleDate.add(citySellRent.isGore() ? "是": "否");
+            singleDate.add(citySellRent.isGore() ? "是" : "否");
             singleDate.add(Constants.NEARBY_LAND_TYPE[model.getNearByLandType()]);
             singleDate.add(Constants.USAGE[model.getUseagePlaned()]);
             singleDate.add(Constants.USAGE[model.getUseageActual()]);
@@ -253,13 +258,13 @@ public class ExcelUtil {
             singleDate.add(citySellRent.getLatitude());
             data.add(singleDate);
         }
-        writeExcel(data);
+        return writeExcel(data);
     }
 
     /**
      * 导出商铺出租
      */
-    public void exportShopRent(Date startTime, Date endTime) {
+    public String exportShopRent(Date startTime, Date endTime) {
         ArrayList<ArrayList<Object>> data = new ArrayList<>();
         data.add(getHeadLineForShopRent());
         List<CitySellRent> citySellRents = citySellRentRepository
@@ -281,7 +286,7 @@ public class ExcelUtil {
             singleDate.add(citySellRent.getWidthToStreet());
             singleDate.add(citySellRent.getDepthToStreet());
             singleDate.add(citySellRent.getBuildingPlotRate());
-            singleDate.add(citySellRent.isGore() ? "是": "否");
+            singleDate.add(citySellRent.isGore() ? "是" : "否");
             singleDate.add(Constants.NEARBY_LAND_TYPE[model.getNearByLandType()]);
             singleDate.add(Constants.USAGE[model.getUseagePlaned()]);
             singleDate.add(Constants.USAGE[model.getUseageActual()]);
@@ -327,11 +332,12 @@ public class ExcelUtil {
             singleDate.add(citySellRent.getLatitude());
             data.add(singleDate);
         }
-        writeExcel(data);
+        return writeExcel(data);
     }
 
     /**
      * 根据传入的字符串解析成date
+     *
      * @param dateString 换入的字符串
      * @return 返回的Date格式数据
      */
@@ -342,12 +348,13 @@ public class ExcelUtil {
             int year = Integer.valueOf(dateString.substring(0, 4));
             int month = Integer.valueOf(dateString.substring(5, 7));
             int date = Integer.valueOf(dateString.substring(8, 10));
-            return new Date(year-1900, month-1, date);
+            return new Date(year - 1900, month - 1, date);
         }
     }
 
     /**
      * 设置商品房出售的第一行
+     *
      * @return 商品房的第一行
      */
     private ArrayList<Object> getHeadLineForCommercial() {
@@ -413,6 +420,7 @@ public class ExcelUtil {
 
     /**
      * 设置商铺出租的第一行
+     *
      * @return 商铺出租的第一行
      */
     private ArrayList<Object> getHeadLineForShopRent() {
@@ -480,6 +488,7 @@ public class ExcelUtil {
 
     /**
      * 设置房屋买卖的第一行
+     *
      * @return 房屋买卖的第一行
      */
     private ArrayList<Object> getHeadLineForHouseTrade() {
@@ -541,6 +550,7 @@ public class ExcelUtil {
 
     /**
      * 设置房屋出租的第一行
+     *
      * @return 房屋出租的第一行
      */
     private ArrayList<Object> getHeadLineForHouseRent() {
@@ -605,11 +615,13 @@ public class ExcelUtil {
 
     /**
      * 创建excel表格
+     *
      * @param data 导入表格的数据
+     * @return 返回文件的地址
      */
-    private void writeExcel(ArrayList<ArrayList<Object>> data) {
+    private String writeExcel(ArrayList<ArrayList<Object>> data) {
         if (data == null) {
-            return;
+            return null;
         }
         //创建工作表
         HSSFWorkbook wb = new HSSFWorkbook();
@@ -620,7 +632,7 @@ public class ExcelUtil {
             if (data.get(i) != null) {
                 for (int j = 0; j < data.get(i).size(); j++) {
                     HSSFCell cell = row.createCell(j);
-                    if (data.get(i).get(j)!=null) {
+                    if (data.get(i).get(j) != null) {
                         cell.setCellValue(data.get(i).get(j).toString());
                     }
                 }
@@ -631,13 +643,16 @@ public class ExcelUtil {
         try {
             wb.write(os);
             byte[] content = os.toByteArray();
-            File file = new File(fileFolder);
+            String fileName = String.valueOf(System.currentTimeMillis()) + ".xls";
+            File file = new File(fileFolder, fileName);
             OutputStream fos = new FileOutputStream(file);
             fos.write(content);
             os.close();
             fos.close();
+            return file.getAbsolutePath();
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
     }
 
