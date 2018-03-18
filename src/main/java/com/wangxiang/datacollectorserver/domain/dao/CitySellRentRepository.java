@@ -27,11 +27,19 @@ public interface CitySellRentRepository extends JpaRepository<CitySellRent, Long
     List<CitySellRent> findCitySellRentsByUserIdAndModelType(Long userId, int modelType);
 
     /**
+     * 从数据库中获取CitySelLRent
+     * @param modelType modelType
+     * @return CitySellRents
+     */
+    List<CitySellRent> findCitySellRentsByModelType(int modelType);
+
+    /**
      * 查询出对应时间段的Model
      * @param startTime 开始时间
      * @param endTime 结束时间
+     * @param modelType modelType
      * @return Models
      */
-    List<CitySellRent> findCitySellRentsByResearcherTimeBetween(Date startTime, Date endTime);
+    List<CitySellRent> findCitySellRentsByResearcherTimeBetweenAndModelType(Date startTime, Date endTime, int modelType);
 
 }

@@ -3,6 +3,9 @@ package com.wangxiang.datacollectorserver.utils;
 import com.wangxiang.datacollectorserver.domain.dao.*;
 import com.wangxiang.datacollectorserver.domain.entity.CitySellRent;
 import com.wangxiang.datacollectorserver.domain.entity.CommercialHouseTradeModel;
+import com.wangxiang.datacollectorserver.domain.entity.HouseRentModel;
+import com.wangxiang.datacollectorserver.domain.entity.HouseTradeModel;
+import com.wangxiang.datacollectorserver.share.Constants;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -10,6 +13,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.awt.font.ShapeGraphicAttribute;
 import java.io.*;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -20,7 +24,7 @@ import java.util.List;
  */
 
 @Component
-public class ExcelUtils {
+public class ExcelUtil {
 
     private final CitySellRentRepository citySellRentRepository;
 
@@ -33,17 +37,12 @@ public class ExcelUtils {
     private final ShopRentRepository shopRentRepository;
 
     @Autowired
-    public ExcelUtils(CitySellRentRepository citySellRentRepository, CommercialHouseTradeRepository commercialHouseTradeRepository, HouseRentRepository houseRentRepository, HouseTradeRepository houseTradeRepository, ShopRentRepository shopRentRepository) {
+    public ExcelUtil(CitySellRentRepository citySellRentRepository, CommercialHouseTradeRepository commercialHouseTradeRepository, HouseRentRepository houseRentRepository, HouseTradeRepository houseTradeRepository, ShopRentRepository shopRentRepository) {
         this.citySellRentRepository = citySellRentRepository;
         this.commercialHouseTradeRepository = commercialHouseTradeRepository;
         this.houseRentRepository = houseRentRepository;
         this.houseTradeRepository = houseTradeRepository;
         this.shopRentRepository = shopRentRepository;
-    }
-
-    public void linkCommercialHouseTrade(List<CitySellRent> citySellRents) {
-        List<CommercialHouseTradeModel> commercialHouseTradeModels = commercialHouseTradeRepository.findAll();
-
     }
 
     /**
@@ -52,7 +51,70 @@ public class ExcelUtils {
     public void exportCommercial(Date startTime, Date endTime) {
         ArrayList<ArrayList<Object>> data = new ArrayList<>();
         data.add(getHeadLineForCommercial());
-        writeExcel(data, "");
+        List<CitySellRent> citySellRents = citySellRentRepository
+                .findCitySellRentsByResearcherTimeBetweenAndModelType(startTime, endTime, Constants.COMMERCIAL_HOUSE_TRADE);
+        for (CitySellRent citySellRent : citySellRents) {
+            CommercialHouseTradeModel model = commercialHouseTradeRepository.findCommercialHouseTradeModelById(citySellRent.getId());
+            ArrayList<Object> singleDate = new ArrayList<>();
+            singleDate.add(citySellRent.getLandLoacation());
+            singleDate.add(citySellRent.getLandRange());
+            singleDate.add(citySellRent.getNearbyStreetName());
+            singleDate.add(Constants.CROSS_LOAD_TYPE[citySellRent.getCrossRoadSituation()]);
+            singleDate.add(Constants.LAND_SHAPE[citySellRent.getLandShape()]);
+            singleDate.add(citySellRent.getLandLength());
+            singleDate.add(citySellRent.getLandWidth());
+            singleDate.add(Constants.LAND_DEVELOPING_SITUATION[citySellRent.getLandDevelopingSituation()]);
+            singleDate.add(Constants.BUILDING_DIRECTION[citySellRent.getLandDevelopingSituation()]);
+            singleDate.add(Constants.NEARBY_STREET_SITUATION[citySellRent.getNearbyStreetSituation()]);
+            singleDate.add(citySellRent.getDistToCornor());
+            singleDate.add(citySellRent.getWidthToStreet());
+            singleDate.add(citySellRent.getDepthToStreet());
+            singleDate.add(citySellRent.getBuildingPlotRate());
+            singleDate.add(citySellRent.isGore() ? "是": "否");
+            singleDate.add(Constants.USAGE[model.getUseagePlande()]);
+            singleDate.add(Constants.USAGE[model.getUseageActual()]);
+            singleDate.add(citySellRent.getAuthorizedTime());
+            singleDate.add(citySellRent.getLandServiceableLife());
+            singleDate.add(citySellRent.getHouseLocation());
+            singleDate.add(model.getFloorNum());
+            singleDate.add(model.getTradeLevel());
+            singleDate.add(Constants.STRUCTURE_TYPE[citySellRent.getStructureType()]);
+            singleDate.add(Constants.QUALITY_LEVEL[citySellRent.getQualityLevel()]);
+            singleDate.add(citySellRent.getBuildingArea());
+            singleDate.add(citySellRent.getHouseArea());
+            singleDate.add(model.getHouseStandardPrice());
+            singleDate.add(model.getBuildingProjectPrice());
+            singleDate.add(model.getServiceFee());
+            singleDate.add(model.getOtherDirectFee());
+            singleDate.add(model.getManageFeeAndProfit());
+            singleDate.add(model.getUnPredictedFee());
+            singleDate.add(model.getLandCompensateFee());
+            singleDate.add(model.getAgentFee());
+            singleDate.add(model.getCityBigSuiteFee());
+            singleDate.add(model.getOtherFee());
+            singleDate.add(model.getDeveloper());
+            singleDate.add(model.getTradeIn());
+            singleDate.add(Constants.TRADE_TYPE[model.getTradeType()]);
+            singleDate.add(model.getLoanYear());
+            singleDate.add(model.getTradeLevel());
+            singleDate.add(model.getTradeTime());
+            singleDate.add(model.getUseage());
+            singleDate.add(model.getPlotRatePlaned());
+            singleDate.add(model.getBuildingDensity());
+            singleDate.add(model.getWholeBuildingPrice());
+            singleDate.add(model.getWholeBuildingFee());
+            singleDate.add(model.getInterest());
+            singleDate.add(model.getProfitOfDeveloper());
+            singleDate.add(model.getPrice());
+            singleDate.add(model.getTax());
+            singleDate.add(model.getLandPricePerSquare());
+            singleDate.add(model.getShareLandArea());
+            singleDate.add(citySellRent.getDetail());
+            singleDate.add(citySellRent.getLongitude());
+            singleDate.add(citySellRent.getLatitude());
+            data.add(singleDate);
+        }
+        writeExcel(data, "C:\\Users\\xiang\\OneDrive\\文档\\xiang.xls");
     }
 
     /**
@@ -61,6 +123,68 @@ public class ExcelUtils {
     public void exportHouseRent(Date startTime, Date endTime) {
         ArrayList<ArrayList<Object>> data = new ArrayList<>();
         data.add(getHeadLineForHouseRent());
+        List<CitySellRent> citySellRents = citySellRentRepository
+                .findCitySellRentsByResearcherTimeBetweenAndModelType(startTime, endTime, Constants.HOUSE_RENT);
+        for (CitySellRent citySellRent : citySellRents) {
+            HouseRentModel model = houseRentRepository.findHouseRentModelById(citySellRent.getId());
+            ArrayList<Object> singleDate = new ArrayList<>();
+            singleDate.add(citySellRent.getLandLoacation());
+            singleDate.add(citySellRent.getLandRange());
+            singleDate.add(citySellRent.getNearbyStreetName());
+            singleDate.add(Constants.CROSS_LOAD_TYPE[citySellRent.getCrossRoadSituation()]);
+            singleDate.add(Constants.LAND_SHAPE[citySellRent.getLandShape()]);
+            singleDate.add(citySellRent.getLandLength());
+            singleDate.add(citySellRent.getLandWidth());
+            singleDate.add(Constants.LAND_DEVELOPING_SITUATION[citySellRent.getLandDevelopingSituation()]);
+            singleDate.add(Constants.BUILDING_DIRECTION[citySellRent.getLandDevelopingSituation()]);
+            singleDate.add(Constants.NEARBY_STREET_SITUATION[citySellRent.getNearbyStreetSituation()]);
+            singleDate.add(citySellRent.getDistToCornor());
+            singleDate.add(citySellRent.getWidthToStreet());
+            singleDate.add(citySellRent.getDepthToStreet());
+            singleDate.add(citySellRent.getBuildingPlotRate());
+            singleDate.add(citySellRent.isGore() ? "是": "否");
+            singleDate.add(Constants.NEARBY_LAND_TYPE[model.getNearByLandType()]);
+            singleDate.add(citySellRent.getAuthorizedTime());
+            singleDate.add(citySellRent.getLandServiceableLife());
+            singleDate.add(citySellRent.getHouseLocation());
+            singleDate.add(model.getFloorNum());
+            singleDate.add(model.getRentLevel());
+            singleDate.add(Constants.STRUCTURE_TYPE[citySellRent.getStructureType()]);
+            singleDate.add(Constants.QUALITY_LEVEL[citySellRent.getQualityLevel()]);
+            singleDate.add(Constants.LIGHT_AIR_TYPE[model.getLightAirType()]);
+            singleDate.add(citySellRent.getBuildingArea());
+            singleDate.add(citySellRent.getHouseArea());
+            singleDate.add(model.getHouseStandardPrice());
+            singleDate.add(model.getTotalArea());
+            singleDate.add(model.getHouseResetToalPrice());
+            singleDate.add(model.getHouseResetPerPrice());
+            singleDate.add(model.getHouseTodayValue());
+            singleDate.add(model.getSubbuildingTodayValue());
+            singleDate.add(model.getYearRobust());
+            singleDate.add(model.getYearUsed());
+            singleDate.add(model.getRentOut());
+            singleDate.add(model.getRentIn());
+            singleDate.add(model.getRentTime());
+            singleDate.add(model.getRentMethod());
+            singleDate.add("  ");
+            singleDate.add("  ");
+            singleDate.add(model.getHouseNormalProfit());
+            singleDate.add(model.getHouseNormalTotalFee());
+            singleDate.add(model.getPriceOfYear());
+            singleDate.add(model.getFixFee());
+            singleDate.add(model.getInterestOfDeposit());
+            singleDate.add(model.getOldFee());
+            singleDate.add(model.getInsuranceFee());
+            singleDate.add(model.getOtherProfit());
+            singleDate.add(model.getManageFree());
+            singleDate.add(model.getTaxFee());
+            singleDate.add(model.getHousePureProfit());
+            singleDate.add(model.getLandNormalPrice());
+            singleDate.add(citySellRent.getDetail());
+            singleDate.add(citySellRent.getLongitude());
+            singleDate.add(citySellRent.getLatitude());
+            data.add(singleDate);
+        }
         writeExcel(data, "");
     }
 
@@ -70,6 +194,65 @@ public class ExcelUtils {
     public void exportHouseTrade(Date startTime, Date endTime) {
         ArrayList<ArrayList<Object>> data = new ArrayList<>();
         data.add(getHeadLineForHouseTrade());
+        List<CitySellRent> citySellRents = citySellRentRepository
+                .findCitySellRentsByResearcherTimeBetweenAndModelType(startTime, endTime, Constants.HOUSE_RENT);
+        for (CitySellRent citySellRent : citySellRents) {
+            HouseTradeModel model = houseTradeRepository.findHouseTradeModelById(citySellRent.getId());
+            ArrayList<Object> singleDate = new ArrayList<>();
+            singleDate.add(citySellRent.getLandLoacation());
+            singleDate.add(citySellRent.getLandRange());
+            singleDate.add(citySellRent.getNearbyStreetName());
+            singleDate.add(Constants.CROSS_LOAD_TYPE[citySellRent.getCrossRoadSituation()]);
+            singleDate.add(Constants.LAND_SHAPE[citySellRent.getLandShape()]);
+            singleDate.add(citySellRent.getLandLength());
+            singleDate.add(citySellRent.getLandWidth());
+            singleDate.add(Constants.LAND_DEVELOPING_SITUATION[citySellRent.getLandDevelopingSituation()]);
+            singleDate.add(Constants.BUILDING_DIRECTION[citySellRent.getLandDevelopingSituation()]);
+            singleDate.add(Constants.NEARBY_STREET_SITUATION[citySellRent.getNearbyStreetSituation()]);
+            singleDate.add(citySellRent.getDistToCornor());
+            singleDate.add(citySellRent.getWidthToStreet());
+            singleDate.add(citySellRent.getDepthToStreet());
+            singleDate.add(citySellRent.getBuildingPlotRate());
+            singleDate.add(citySellRent.isGore() ? "是": "否");
+            singleDate.add(Constants.NEARBY_LAND_TYPE[model.getNearByLandType()]);
+            singleDate.add(Constants.USAGE[model.getUseagePlaned()]);
+            singleDate.add(Constants.USAGE[model.getUseageActual()]);
+            singleDate.add(citySellRent.getAuthorizedTime());
+            singleDate.add(citySellRent.getLandServiceableLife());
+            singleDate.add(citySellRent.getHouseLocation());
+            singleDate.add(model.getFloorNum());
+            singleDate.add(model.getTradeLevel());
+            singleDate.add(Constants.STRUCTURE_TYPE[citySellRent.getStructureType()]);
+            singleDate.add(Constants.DECORATION_TYPE[model.getDecorationType()]);
+            singleDate.add(Constants.QUALITY_LEVEL[citySellRent.getQualityLevel()]);
+            singleDate.add(Constants.LIGHT_AIR_TYPE[model.getLightAirType()]);
+            singleDate.add(citySellRent.getBuildingArea());
+            singleDate.add(citySellRent.getHouseArea());
+            singleDate.add(model.getHouseStandardPrice());
+            singleDate.add(model.getTotalArea());
+            singleDate.add(model.getHouseResetTotalPrice());
+            singleDate.add(model.getSubbuildingResetPrice());
+            singleDate.add(model.getHouseTodayValue());
+            singleDate.add(model.getSubbuildingTodayValue());
+            singleDate.add(model.getYearRobust());
+            singleDate.add(model.getYearUsed());
+            singleDate.add(model.getTradeOut());
+            singleDate.add(model.getTradeIn());
+            singleDate.add(model.getTradeTime());
+            singleDate.add(model.getTradeMethod());
+            singleDate.add(model.getUseageBeforeTrade());
+            singleDate.add(model.getUseageAfterTrade());
+            singleDate.add(model.getTradeBuildingArea());
+            singleDate.add(model.getBuildingTradeSharedLandArea());
+            singleDate.add(model.getHouseTradeTotalPrice());
+            singleDate.add(model.getHouseTradeTax());
+            singleDate.add(model.getLandTradeTotalPirce());
+            singleDate.add(model.getLandPricePerSquare());
+            singleDate.add(citySellRent.getDetail());
+            singleDate.add(citySellRent.getLongitude());
+            singleDate.add(citySellRent.getLatitude());
+            data.add(singleDate);
+        }
         writeExcel(data, "");
     }
 
@@ -94,7 +277,7 @@ public class ExcelUtils {
             int year = Integer.valueOf(dateString.substring(0, 4));
             int month = Integer.valueOf(dateString.substring(5, 7));
             int date = Integer.valueOf(dateString.substring(8, 10));
-            return new Date(year, month, date);
+            return new Date(year-1900, month-1, date);
         }
     }
 
@@ -372,7 +555,9 @@ public class ExcelUtils {
             if (data.get(i) != null) {
                 for (int j = 0; j < data.get(i).size(); j++) {
                     HSSFCell cell = row.createCell(j);
-                    cell.setCellValue(data.get(i).get(j).toString());
+                    if (data.get(i).get(j)!=null) {
+                        cell.setCellValue(data.get(i).get(j).toString());
+                    }
                 }
             }
         }
