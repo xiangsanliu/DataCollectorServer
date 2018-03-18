@@ -32,9 +32,8 @@ public class ExportController {
     @RequestMapping(value = "/download", method = RequestMethod.POST)
     public void export(String start, String end, String type) {
         Date startTime, endTime;
-        startTime = new Date(2017, 8, 8);
-        endTime = new Date(Date.parse(end));
-
+        startTime = excelUtils.resolveDate(start);
+        endTime = excelUtils.resolveDate(end);
         switch (type) {
             case "商品房出售调查表":
                 excelUtils.exportCommercial(startTime, endTime);
@@ -43,7 +42,7 @@ public class ExportController {
                 excelUtils.exportHouseRent(startTime, endTime);
                 break;
             case "房屋买卖价格调查表":
-                excelUtils.exportHouseSell(startTime, endTime);
+                excelUtils.exportHouseTrade(startTime, endTime);
                 break;
             case "柜台（商铺）出租租金调查表":
                 excelUtils.exportShopRent(startTime, endTime);
