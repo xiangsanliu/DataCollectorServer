@@ -8,9 +8,9 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.awt.font.ShapeGraphicAttribute;
 import java.io.*;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -32,6 +32,9 @@ public class ExcelUtil {
     private final HouseTradeRepository houseTradeRepository;
 
     private final ShopRentRepository shopRentRepository;
+
+    @Value("${file_folder}")
+    private String fileFolder;
 
     @Autowired
     public ExcelUtil(CitySellRentRepository citySellRentRepository, CommercialHouseTradeRepository commercialHouseTradeRepository, HouseRentRepository houseRentRepository, HouseTradeRepository houseTradeRepository, ShopRentRepository shopRentRepository) {
@@ -111,7 +114,7 @@ public class ExcelUtil {
             singleDate.add(citySellRent.getLatitude());
             data.add(singleDate);
         }
-        writeExcel(data, "C:\\Users\\xiang\\OneDrive\\文档\\xiang.xls");
+        writeExcel(data);
     }
 
     /**
@@ -182,7 +185,7 @@ public class ExcelUtil {
             singleDate.add(citySellRent.getLatitude());
             data.add(singleDate);
         }
-        writeExcel(data, "");
+        writeExcel(data);
     }
 
     /**
@@ -250,7 +253,7 @@ public class ExcelUtil {
             singleDate.add(citySellRent.getLatitude());
             data.add(singleDate);
         }
-        writeExcel(data, "");
+        writeExcel(data);
     }
 
     /**
@@ -324,7 +327,7 @@ public class ExcelUtil {
             singleDate.add(citySellRent.getLatitude());
             data.add(singleDate);
         }
-        writeExcel(data, "C:\\Users\\xiang\\OneDrive\\文档\\xiang.xls");
+        writeExcel(data);
     }
 
     /**
@@ -603,9 +606,8 @@ public class ExcelUtil {
     /**
      * 创建excel表格
      * @param data 导入表格的数据
-     * @param path 表格存储路径
      */
-    private void writeExcel(ArrayList<ArrayList<Object>> data, String path) {
+    private void writeExcel(ArrayList<ArrayList<Object>> data) {
         if (data == null) {
             return;
         }
@@ -629,7 +631,7 @@ public class ExcelUtil {
         try {
             wb.write(os);
             byte[] content = os.toByteArray();
-            File file = new File(path);
+            File file = new File(fileFolder);
             OutputStream fos = new FileOutputStream(file);
             fos.write(content);
             os.close();
