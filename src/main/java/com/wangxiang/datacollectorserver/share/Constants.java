@@ -6,6 +6,8 @@ public class Constants {
     public static final int SHOP_RENT = 1;
     public static final int HOUSE_SELL = 2;
     public static final int HOUSE_RENT = 3;
+
+    public static final String DIR_PATH = "/home/ubuntu/data_collector_server_files/";
     // 用户登录失败
     public static final int USER_LOGIN_SUCCESS = 101;
     // 用户登录成功

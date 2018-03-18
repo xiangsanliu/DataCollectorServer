@@ -1,10 +1,7 @@
 package com.wangxiang.datacollectorserver.utils;
 
 import com.wangxiang.datacollectorserver.domain.dao.*;
-import com.wangxiang.datacollectorserver.domain.entity.CitySellRent;
-import com.wangxiang.datacollectorserver.domain.entity.CommercialHouseTradeModel;
-import com.wangxiang.datacollectorserver.domain.entity.HouseRentModel;
-import com.wangxiang.datacollectorserver.domain.entity.HouseTradeModel;
+import com.wangxiang.datacollectorserver.domain.entity.*;
 import com.wangxiang.datacollectorserver.share.Constants;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -195,7 +192,7 @@ public class ExcelUtil {
         ArrayList<ArrayList<Object>> data = new ArrayList<>();
         data.add(getHeadLineForHouseTrade());
         List<CitySellRent> citySellRents = citySellRentRepository
-                .findCitySellRentsByResearcherTimeBetweenAndModelType(startTime, endTime, Constants.HOUSE_RENT);
+                .findCitySellRentsByResearcherTimeBetweenAndModelType(startTime, endTime, Constants.HOUSE_SELL);
         for (CitySellRent citySellRent : citySellRents) {
             HouseTradeModel model = houseTradeRepository.findHouseTradeModelById(citySellRent.getId());
             ArrayList<Object> singleDate = new ArrayList<>();
@@ -262,6 +259,71 @@ public class ExcelUtil {
     public void exportShopRent(Date startTime, Date endTime) {
         ArrayList<ArrayList<Object>> data = new ArrayList<>();
         data.add(getHeadLineForShopRent());
+        List<CitySellRent> citySellRents = citySellRentRepository
+                .findCitySellRentsByResearcherTimeBetweenAndModelType(startTime, endTime, Constants.SHOP_RENT);
+        for (CitySellRent citySellRent : citySellRents) {
+            ShopRentModel model = shopRentRepository.findShopRentModelById(citySellRent.getId());
+            ArrayList<Object> singleDate = new ArrayList<>();
+            singleDate.add(citySellRent.getLandLoacation());
+            singleDate.add(citySellRent.getLandRange());
+            singleDate.add(citySellRent.getNearbyStreetName());
+            singleDate.add(Constants.CROSS_LOAD_TYPE[citySellRent.getCrossRoadSituation()]);
+            singleDate.add(Constants.LAND_SHAPE[citySellRent.getLandShape()]);
+            singleDate.add(citySellRent.getLandLength());
+            singleDate.add(citySellRent.getLandWidth());
+            singleDate.add(Constants.LAND_DEVELOPING_SITUATION[citySellRent.getLandDevelopingSituation()]);
+            singleDate.add(Constants.BUILDING_DIRECTION[citySellRent.getLandDevelopingSituation()]);
+            singleDate.add(Constants.NEARBY_STREET_SITUATION[citySellRent.getNearbyStreetSituation()]);
+            singleDate.add(citySellRent.getDistToCornor());
+            singleDate.add(citySellRent.getWidthToStreet());
+            singleDate.add(citySellRent.getDepthToStreet());
+            singleDate.add(citySellRent.getBuildingPlotRate());
+            singleDate.add(citySellRent.isGore() ? "是": "否");
+            singleDate.add(Constants.NEARBY_LAND_TYPE[model.getNearByLandType()]);
+            singleDate.add(Constants.USAGE[model.getUseagePlaned()]);
+            singleDate.add(Constants.USAGE[model.getUseageActual()]);
+            singleDate.add(citySellRent.getAuthorizedTime());
+            singleDate.add(citySellRent.getLandServiceableLife());
+            singleDate.add(citySellRent.getHouseLocation());
+            singleDate.add(Constants.DECORATION_TYPE[model.getDecorationType()]);
+            singleDate.add(Constants.STRUCTURE_TYPE[citySellRent.getStructureType()]);
+            singleDate.add(Constants.QUALITY_LEVEL[citySellRent.getQualityLevel()]);
+            singleDate.add(Constants.LIGHT_AIR_TYPE[model.getLightAirType()]);
+            singleDate.add(citySellRent.getBuildingArea());
+            singleDate.add(citySellRent.getHouseArea());
+            singleDate.add(model.getHouseStandardPrice());
+            singleDate.add(model.getTotalArea());
+            singleDate.add(model.getHouseResetTotalPrice());
+            singleDate.add(model.getSubbuildingResetPrice());
+            singleDate.add(model.getHouseTodayValue());
+            singleDate.add(model.getSubbuildingTodayValue());
+            singleDate.add(model.getYearRobust());
+            singleDate.add(model.getYearUsed());
+            singleDate.add(model.getRentOut());
+            singleDate.add(model.getRentIn());
+            singleDate.add(model.getRentMethod());
+            singleDate.add(model.getRentTime());
+            singleDate.add(model.getUseage());
+            singleDate.add(model.getRentDeadline());
+            singleDate.add(model.getTotalTrdeArea());
+            singleDate.add(model.getCounterTradeArea());
+            singleDate.add(model.getTotalRentPrice());
+            singleDate.add(model.getFixFee());
+            singleDate.add(model.getOldFee());
+            singleDate.add(model.getManageFree());
+            singleDate.add(model.getInsuranceFee());
+            singleDate.add(model.getTaxFee());
+            singleDate.add(model.getOtherFee());
+            singleDate.add(model.getCounterSharedLandArea());
+            singleDate.add(model.getCounterSharedLandFee());
+            singleDate.add(model.getCounterFeeOfYear());
+            singleDate.add(model.getBuildinglandPrice());
+            singleDate.add(model.getPricePer());
+            singleDate.add(citySellRent.getDetail());
+            singleDate.add(citySellRent.getLongitude());
+            singleDate.add(citySellRent.getLatitude());
+            data.add(singleDate);
+        }
         writeExcel(data, "");
     }
 
@@ -373,8 +435,9 @@ public class ExcelUtil {
         headLine.add("使用权取得时间");
         headLine.add("土地使用年限");
         headLine.add("柜台具体位置");
-        headLine.add("装修标准");
         headLine.add("房屋结构");
+        headLine.add("装修标准");
+        headLine.add("质量等级");
         headLine.add("采光通风状况");
         headLine.add("建筑面积");
         headLine.add("房屋建筑面积");
@@ -404,7 +467,7 @@ public class ExcelUtil {
         headLine.add("出租柜台分摊土地面积");
         headLine.add("出租柜台分摊总费");
         headLine.add("出租柜台年租金");
-        headLine.add("露面地价");
+        headLine.add("楼面地价");
         headLine.add("单位地价");
         headLine.add("详细说明");
         headLine.add("经度");
