@@ -324,7 +324,7 @@ public class ExcelUtil {
             singleDate.add(citySellRent.getLatitude());
             data.add(singleDate);
         }
-        writeExcel(data, "");
+        writeExcel(data, "C:\\Users\\xiang\\OneDrive\\文档\\xiang.xls");
     }
 
     /**
