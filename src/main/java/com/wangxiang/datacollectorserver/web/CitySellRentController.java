@@ -4,13 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.wangxiang.datacollectorserver.domain.dao.*;
 import com.wangxiang.datacollectorserver.domain.entity.*;
 import com.wangxiang.datacollectorserver.share.Constants;
+import com.wangxiang.datacollectorserver.share.HttpResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Order;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -173,5 +171,48 @@ public class CitySellRentController {
 
     }
 
+    /**
+     * the four methods below are for user's uploading models
+     *  each method have to return a {@link HttpResult} to notify
+     *  user whether the uploading action is success.
+     *
+     *  if uploading is success, the value of {@link HttpResult.resultCode}
+     *  would be {@link Constants.UPLOAD_MODEL_SUCCESS},
+     *  or it will be {@link Constants.UPLOAD_MODEL_FAILED}
+     * **/
 
+    /**
+     * @param IMEI
+     * @param commonJson
+     * @param modelJson
+     * @return
+     */
+
+    @RequestMapping("/save/counter_rent")
+    public HttpResult<Void> uploadCounterRent(@RequestParam("IMEI") String IMEI,
+                                              @RequestPart("commonAttrs") String commonJson,
+                                              @RequestPart("modelAttrs") String modelJson) {
+        return null;
+    }
+
+    @RequestMapping("/save/house_rent")
+    public HttpResult<Void> uploadHouseRent(@RequestParam("IMEI") String IMEI,
+                                            @RequestPart("commonAttrs") String commonJson,
+                                            @RequestPart("modelAttrs") String modelJson) {
+        return null;
+    }
+
+    @RequestMapping("/save/commercial_housing_for_sale")
+    public HttpResult<Void> uploadCommercialHousingForSale(@RequestParam("IMEI") String IMEI,
+                                                           @RequestPart("commonAttrs") String commonJson,
+                                                           @RequestPart("modelAttrs") String modelJson) {
+        return null;
+    }
+
+    @RequestMapping("/save/house_sale_price")
+    public HttpResult<Void> uploadHouseSalePrice(@RequestParam("IMEI") String IMEI,
+                                                 @RequestPart("commonAttrs") String commonJson,
+                                                 @RequestPart("modelAttrs") String modelJson) {
+        return null;
+    }
 }

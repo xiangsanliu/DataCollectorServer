@@ -10,5 +10,8 @@ public class Constants {
     public static final int USER_LOGIN_SUCCESS = 101;
     // 用户登录成功
     public static final int USER_LOGIN_FAILED = 102;
-
+    // user upload success
+    public static final int UPLOAD_MODEL_SUCCESS = 200;
+    // user upload failed
+    public static final int UPLOAD_MODEL_FAILED = 201;
 }
