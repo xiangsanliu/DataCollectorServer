@@ -15,4 +15,9 @@ public class WebController {
         return "apply";
     }
 
+    @RequestMapping(value = "/export", method = RequestMethod.GET)
+    public String export() {
+        return "export";
+    }
+
 }

@@ -3,6 +3,7 @@ package com.wangxiang.datacollectorserver.domain.dao;
 import com.wangxiang.datacollectorserver.domain.entity.CitySellRent;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -27,10 +28,10 @@ public interface CitySellRentRepository extends JpaRepository<CitySellRent, Long
 
     /**
      * 查询出对应时间段的Model
-     * @param low 开始时间
-     * @param high 结束时间
+     * @param startTime 开始时间
+     * @param endTime 结束时间
      * @return Models
      */
-    List<CitySellRent> findCitySellRentsByIdBetween(Long low, Long high);
+    List<CitySellRent> findCitySellRentsByResearcherTimeBetween(Date startTime, Date endTime);
 
 }

@@ -15,12 +15,4 @@ public interface CommercialHouseTradeRepository extends JpaRepository<Commercial
      */
     CommercialHouseTradeModel findCommercialHouseTradeModelById(Long id);
 
-    /**
-     * 查询出对应时间段的Model
-     * @param low 开始时间
-     * @param high 结束时间
-     * @return Models
-     */
-    List<CommercialHouseTradeModel> findCommercialHouseTradeModelsByIdBetween(Long low, Long high);
-
 }

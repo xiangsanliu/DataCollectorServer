@@ -14,11 +14,4 @@ public interface ShopRentRepository extends JpaRepository<ShopRentModel, Long> {
      */
     ShopRentModel findShopRentModelById(Long id);
 
-    /**
-     * 查询出对应时间段的Model
-     * @param low 开始时间
-     * @param high 结束时间
-     * @return Models
-     */
-    List<ShopRentModel> findShopRentModelsByIdBetween(Long low, Long high);
 }

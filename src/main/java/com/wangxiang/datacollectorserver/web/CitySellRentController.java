@@ -54,11 +54,12 @@ public class CitySellRentController {
                                                @RequestParam("modelType") int modelType,
                                                @RequestParam("index") int index,
                                                @RequestParam("count") int count) {
-        Order order = new Order(Sort.Direction.DESC, "researcherTime");
-        PageRequest pageRequest = new PageRequest(index, count, new Sort(order));
-        Page<CitySellRent> citySellRentPage = citySellRentRepository.findCitySellRentsPageable(pageRequest);
-        return citySellRentPage.getContent();
+//        Order order = new Order(Sort.Direction.DESC, "researcherTime");
+//        PageRequest pageRequest = new PageRequest(index, count, new Sort(order));
+//        Page<CitySellRent> citySellRentPage = citySellRentRepository.findCitySellRentsPageable(pageRequest);
+//        return citySellRentPage.getContent();
 //        return citySellRentRepository.findCitySellRentsByUserIdAndModelType(userId, modelType);
+        return citySellRentRepository.findAll();
     }
 
     @RequestMapping("/get/citysellrent")

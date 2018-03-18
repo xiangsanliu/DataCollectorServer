@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Date;
 
 /**
  * Created by StormPhoenix on 17-9-11.
@@ -108,7 +109,7 @@ public class CitySellRent {
     private String researcher;
     //调查人
 
-    private String researcherTime;
+    private Date researcherTime;
     //调查时间
 
     private Long userId;

@@ -1,48 +1,57 @@
 package com.wangxiang.datacollectorserver.web;
 
-import org.springframework.stereotype.Controller;
+import com.wangxiang.datacollectorserver.utils.ExcelUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.sql.Date;
+
 
 /**
  * @author xiang
  * 用来导出数据的Controller
  */
 
-@Controller
+@RestController
 @RequestMapping("/export")
 public class ExportController {
 
-    /**
-     * 导出商品房出售
-     */
-    @RequestMapping(value = "/commercial", method = RequestMethod.GET)
-    public void exportCommercialHouseTrade() {
 
+    private final ExcelUtils excelUtils;
+
+    @Autowired
+    public ExportController(ExcelUtils excelUtils) {
+        this.excelUtils = excelUtils;
     }
 
     /**
-     * 导出房屋出租
+     * 导出表格
      */
-    @RequestMapping(value = "/houserent", method = RequestMethod.GET)
-    public void exportHouseRent() {
+    @RequestMapping(value = "/download", method = RequestMethod.POST)
+    public void export(String start, String end, String type) {
+        Date startTime, endTime;
+        startTime = new Date(2017, 8, 8);
+        endTime = new Date(Date.parse(end));
 
+        switch (type) {
+            case "商品房出售调查表":
+                excelUtils.exportCommercial(startTime, endTime);
+                break;
+            case "房屋出租租金调查表":
+                excelUtils.exportHouseRent(startTime, endTime);
+                break;
+            case "房屋买卖价格调查表":
+                excelUtils.exportHouseSell(startTime, endTime);
+                break;
+            case "柜台（商铺）出租租金调查表":
+                excelUtils.exportShopRent(startTime, endTime);
+                break;
+            default:
+        }
     }
 
-    /**
-     * 导出房屋买卖
-     */
-    @RequestMapping(value = "/housesell", method = RequestMethod.GET)
-    public void exportHouseSell() {
 
-    }
-
-    /**
-     * 导出商铺出租
-     */
-    @RequestMapping(value = "/shoprent", method = RequestMethod.GET)
-    public void exportShopRent() {
-
-    }
 
 }

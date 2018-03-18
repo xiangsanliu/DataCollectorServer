@@ -17,11 +17,4 @@ public interface HouseTradeRepository extends JpaRepository<HouseTradeModel, Lon
      */
     HouseTradeModel findHouseTradeModelById(Long id);
 
-    /**
-     * 查询出对应时间段的Model
-     * @param low 开始时间
-     * @param high 结束时间
-     * @return Models
-     */
-    List<HouseTradeModel> findHouseTradeModelsByIdBetween(Long low, Long high);
 }
