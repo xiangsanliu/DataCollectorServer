@@ -1,15 +1,12 @@
 package com.wangxiang.datacollectorserver.domain.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+
+
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Getter
-@Setter
-@NoArgsConstructor
 @Entity
 public class ShopRentModel {
 
@@ -119,5 +116,280 @@ public class ShopRentModel {
     //楼面地价
 
     private String pricePer;
+
+    public ShopRentModel() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getUseageActual() {
+        return useageActual;
+    }
+
+    public void setUseageActual(int useageActual) {
+        this.useageActual = useageActual;
+    }
+
+    public int getUseagePlaned() {
+        return useagePlaned;
+    }
+
+    public void setUseagePlaned(int useagePlaned) {
+        this.useagePlaned = useagePlaned;
+    }
+
+    public int getNearByLandType() {
+        return nearByLandType;
+    }
+
+    public void setNearByLandType(int nearByLandType) {
+        this.nearByLandType = nearByLandType;
+    }
+
+    public int getDecorationType() {
+        return decorationType;
+    }
+
+    public void setDecorationType(int decorationType) {
+        this.decorationType = decorationType;
+    }
+
+    public int getLightAirType() {
+        return lightAirType;
+    }
+
+    public void setLightAirType(int lightAirType) {
+        this.lightAirType = lightAirType;
+    }
+
+    public String getHouseStandardPrice() {
+        return houseStandardPrice;
+    }
+
+    public void setHouseStandardPrice(String houseStandardPrice) {
+        this.houseStandardPrice = houseStandardPrice;
+    }
+
+    public String getTotalArea() {
+        return totalArea;
+    }
+
+    public void setTotalArea(String totalArea) {
+        this.totalArea = totalArea;
+    }
+
+    public String getHouseResetTotalPrice() {
+        return houseResetTotalPrice;
+    }
+
+    public void setHouseResetTotalPrice(String houseResetTotalPrice) {
+        this.houseResetTotalPrice = houseResetTotalPrice;
+    }
+
+    public String getSubbuildingResetPrice() {
+        return subbuildingResetPrice;
+    }
+
+    public void setSubbuildingResetPrice(String subbuildingResetPrice) {
+        this.subbuildingResetPrice = subbuildingResetPrice;
+    }
+
+    public String getHouseTodayValue() {
+        return houseTodayValue;
+    }
+
+    public void setHouseTodayValue(String houseTodayValue) {
+        this.houseTodayValue = houseTodayValue;
+    }
+
+    public String getSubbuildingTodayValue() {
+        return subbuildingTodayValue;
+    }
+
+    public void setSubbuildingTodayValue(String subbuildingTodayValue) {
+        this.subbuildingTodayValue = subbuildingTodayValue;
+    }
+
+    public String getYearRobust() {
+        return yearRobust;
+    }
+
+    public void setYearRobust(String yearRobust) {
+        this.yearRobust = yearRobust;
+    }
+
+    public String getYearUsed() {
+        return yearUsed;
+    }
+
+    public void setYearUsed(String yearUsed) {
+        this.yearUsed = yearUsed;
+    }
+
+    public String getRentOut() {
+        return rentOut;
+    }
+
+    public void setRentOut(String rentOut) {
+        this.rentOut = rentOut;
+    }
+
+    public String getRentIn() {
+        return rentIn;
+    }
+
+    public void setRentIn(String rentIn) {
+        this.rentIn = rentIn;
+    }
+
+    public String getRentTime() {
+        return rentTime;
+    }
+
+    public void setRentTime(String rentTime) {
+        this.rentTime = rentTime;
+    }
+
+    public String getRentMethod() {
+        return rentMethod;
+    }
+
+    public void setRentMethod(String rentMethod) {
+        this.rentMethod = rentMethod;
+    }
+
+    public String getUseage() {
+        return useage;
+    }
+
+    public void setUseage(String useage) {
+        this.useage = useage;
+    }
+
+    public String getRentDeadline() {
+        return rentDeadline;
+    }
+
+    public void setRentDeadline(String rentDeadline) {
+        this.rentDeadline = rentDeadline;
+    }
+
+    public String getTotalTrdeArea() {
+        return totalTrdeArea;
+    }
+
+    public void setTotalTrdeArea(String totalTrdeArea) {
+        this.totalTrdeArea = totalTrdeArea;
+    }
+
+    public String getCounterTradeArea() {
+        return counterTradeArea;
+    }
+
+    public void setCounterTradeArea(String counterTradeArea) {
+        this.counterTradeArea = counterTradeArea;
+    }
+
+    public String getTotalRentPrice() {
+        return totalRentPrice;
+    }
+
+    public void setTotalRentPrice(String totalRentPrice) {
+        this.totalRentPrice = totalRentPrice;
+    }
+
+    public String getFixFee() {
+        return fixFee;
+    }
+
+    public void setFixFee(String fixFee) {
+        this.fixFee = fixFee;
+    }
+
+    public String getOldFee() {
+        return oldFee;
+    }
+
+    public void setOldFee(String oldFee) {
+        this.oldFee = oldFee;
+    }
+
+    public String getInsuranceFee() {
+        return insuranceFee;
+    }
+
+    public void setInsuranceFee(String insuranceFee) {
+        this.insuranceFee = insuranceFee;
+    }
+
+    public String getManageFree() {
+        return manageFree;
+    }
+
+    public void setManageFree(String manageFree) {
+        this.manageFree = manageFree;
+    }
+
+    public String getTaxFee() {
+        return taxFee;
+    }
+
+    public void setTaxFee(String taxFee) {
+        this.taxFee = taxFee;
+    }
+
+    public String getOtherFee() {
+        return otherFee;
+    }
+
+    public void setOtherFee(String otherFee) {
+        this.otherFee = otherFee;
+    }
+
+    public String getCounterSharedLandArea() {
+        return counterSharedLandArea;
+    }
+
+    public void setCounterSharedLandArea(String counterSharedLandArea) {
+        this.counterSharedLandArea = counterSharedLandArea;
+    }
+
+    public String getCounterSharedLandFee() {
+        return counterSharedLandFee;
+    }
+
+    public void setCounterSharedLandFee(String counterSharedLandFee) {
+        this.counterSharedLandFee = counterSharedLandFee;
+    }
+
+    public String getCounterFeeOfYear() {
+        return counterFeeOfYear;
+    }
+
+    public void setCounterFeeOfYear(String counterFeeOfYear) {
+        this.counterFeeOfYear = counterFeeOfYear;
+    }
+
+    public String getBuildinglandPrice() {
+        return buildinglandPrice;
+    }
+
+    public void setBuildinglandPrice(String buildinglandPrice) {
+        this.buildinglandPrice = buildinglandPrice;
+    }
+
+    public String getPricePer() {
+        return pricePer;
+    }
+
+    public void setPricePer(String pricePer) {
+        this.pricePer = pricePer;
+    }
     //单位地价
 }

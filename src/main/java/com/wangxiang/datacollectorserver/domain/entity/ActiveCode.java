@@ -1,8 +1,5 @@
 package com.wangxiang.datacollectorserver.domain.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,14 +8,14 @@ import javax.persistence.Id;
  * @author xiang
  */
 
-@Getter
-@Setter
-@NoArgsConstructor
 @Entity
 public class ActiveCode {
     @Id
     private Long activeCode;
     private int leftTime;
+
+    public ActiveCode() {
+    }
 
     //激活
     public boolean active() {
@@ -28,5 +25,21 @@ public class ActiveCode {
         } else {
             return false;
         }
+    }
+
+    public Long getActiveCode() {
+        return activeCode;
+    }
+
+    public void setActiveCode(Long activeCode) {
+        this.activeCode = activeCode;
+    }
+
+    public int getLeftTime() {
+        return leftTime;
+    }
+
+    public void setLeftTime(int leftTime) {
+        this.leftTime = leftTime;
     }
 }

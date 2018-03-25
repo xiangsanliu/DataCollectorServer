@@ -1,8 +1,8 @@
 package com.wangxiang.datacollectorserver.domain.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,9 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
 public class ImeiModel {
 
     @Id
@@ -20,6 +17,17 @@ public class ImeiModel {
     private String imei;
 
     public ImeiModel(String imei) {
+        this.imei = imei;
+    }
+
+    public ImeiModel() {
+    }
+
+    public String getImei() {
+        return imei;
+    }
+
+    public void setImei(String imei) {
         this.imei = imei;
     }
 }
